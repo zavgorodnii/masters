@@ -1,0 +1,142 @@
+\documentclass[a4paper, titlepage, 12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{mathtools}
+\usepackage{fixltx2e}
+\usepackage{stmaryrd}
+\usepackage{gb4e}
+\noautomath
+
+\title{Семантика и дистрибуция фокусных частиц в русском языке}
+
+\author{Андрей Завгородний}
+
+\renewcommand*\contentsname{Summary}
+
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}} % Defines a new command for the horizontal lines, change thickness here
+
+\center % Center everything on the page
+ 
+%----------------------------------------------------------------------------------------
+%   HEADING SECTIONS
+%----------------------------------------------------------------------------------------
+
+\textsc{\large Московский государственный университет имени \\ М.В. Ломоносова}\\[1.5cm] % Name of your university/college
+\textsc{\large Филологический факультет}\\[0.5cm] % Major heading such as course name
+\textsc{\large Отделение фундаментальной и прикладной лингвистики}\\[0.5cm] % Minor heading such as course title
+
+~\\[2.0cm]
+
+%----------------------------------------------------------------------------------------
+%   TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+
+{ \huge Семантика и дистрибуция фокусных частиц в русском языке}\\[0.4cm] % Title of your document
+ 
+%----------------------------------------------------------------------------------------
+%   AUTHOR SECTION
+%----------------------------------------------------------------------------------------
+
+~\\[3.0cm]
+
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+Дипломная работа студента II курса магистратуры Андрея Олеговича Завгороднего \\
+\end{flushleft}
+\end{minipage}
+~
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+Научный руководитель д.ф.н., проф. \\  Сергей Георгиевич Татевосов \\
+\end{flushright}
+\end{minipage}\\[5cm]
+
+% If you don't want a supervisor, uncomment the two lines below and remove the section above
+%\Large \emph{Author:}\\
+%John \textsc{Smith}\\[3cm] % Your name
+
+%----------------------------------------------------------------------------------------
+%   DATE SECTION
+%----------------------------------------------------------------------------------------
+
+{\large Москва, 2017} % Date, change the \today to a set date if you want to be precise
+
+%----------------------------------------------------------------------------------------
+%   LOGO SECTION
+%----------------------------------------------------------------------------------------
+
+%\includegraphics{Logo}\\[1cm] % Include a department/university logo - this will require the graphicx package
+ 
+%----------------------------------------------------------------------------------------
+
+% \vfill % Fill the rest of the page with whitespace
+
+\end{titlepage}
+
+\thispagestyle{empty} 
+\tableofcontents
+\thispagestyle{empty}
+
+\clearpage
+
+
+\section[Введение]{Введение}
+
+Введение.
+
+\setcounter{page}{1}
+
+\section[Фокус и скалярные аддитивные операторы]{Фокус и скалярные аддитивные операторы}
+
+В данной главе мы опишем наиболее значимые подходы к анализу фокуса и скалярных аддитивных операторов. В чаcти, посвященной семантике фокуса, мы не будем затрагивать проблему фокусного маркирования (см., тем не менее, Selkirk (1984, 1995) и  Schwarzschild (1999)). Мы постараемся не ограничиваться генеративной традицией и изложим современные функциональные подходы к анализу фокуса.
+
+\subsection[Семантика фокуса]{Семантика фокуса}
+
+Фокус --- грамматическая категория, определяющая ту часть предложения, которая вводит в дискурс новую, не выводимую из предыдущего контекста или контрастивную информацию. Фокус имеет прямое отношение к семантике предложения, поскольку способен влиять на истинностное значение высказывания. Ниже приведен классический пример смыслоразличительной функции фокуса из английского языка:
+
+\begin{exe}
+    \ex \begin{xlist}
+        \ex \label{ch2ex1} John only introduced [Bill]\textsubscript{F} to Sue.
+        \ex \label{ch2ex2} John only introduced Bill to [Sue]\textsubscript{F}.
+    \end{xlist}
+\end{exe}
+
+В примере (\ref{ch2ex1}) утверждается, что единственным человеком, которого представили Сью, был Билл. В (\ref{ch2ex2}), напротив, говорится, что Билла представили только Сью (в то время как Сью могли также представить Джона, Гарри, etc.)
+
+\medskip
+
+Пробуем семантику:
+
+\begin{exe}
+    \ex $ \llbracket \textsc{only} \rrbracket = \lambda P_{<e,t>}.\lambda x_{e}.[ \forall Q_{<e,t>} [Q(x) \land C(Q)] \rightarrow Q = P ]$
+\end{exe}
+
+\subsubsection[Семантика альтернатив (Rooth, 1985)]{Семантика альтернатив (Rooth, 1985)}
+
+
+
+\newpage
+\section{Библиография.}
+
+\begin{itemize}
+
+    
+    \item[] \textbf{Rooth, M. 1985.} \textit{Association with Focus.} Ph.D. thesis, UMass. Amherst: Graduate Linguistics Students Association.
+
+    \item[]  \textbf{Rooth, M. 1992.} \textit{A theory of focus interpretation.} Natural Language Semantics 1:75–116. 
+
+    \item[] \textbf{Selkirk, E. 1984.} \textit{Phonology and Syntax: The Relation between Sound and Structure.} Cambridge, MA: MIT Press.
+
+    \item[] \textbf{Selkirk, E. 1995.} \textit{Sentence Prosody: Intonation, Stress, and Phrasing.} In: J. A. Goldsmith (ed.): The Handbook of Phonological Theory. London: Basil Blackwell, pp. 550–569.
+
+    \item[] \textbf{Schwarzschild, R. 1999.} \textit{GIVENness, AvoidF and other Constraints on the Placement of Accent.} Natural Language Semantics 7(2), 141–177.
+
+\end{itemize}
+
+
+\end{document}
