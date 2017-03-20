@@ -4,8 +4,11 @@
 \usepackage{mathtools}
 \usepackage{fixltx2e}
 \usepackage{stmaryrd}
+\usepackage[round, sort]{natbib}
 \usepackage{gb4e}
 \noautomath
+
+% COMPILE WITH: reset && pdflatex zavgorodny_diplom.tex && bibtex zavgorodny_diplom && pdflatex zavgorodny_diplom.tex && pdflatex zavgorodny_diplom.tex
 
 \title{Семантика и дистрибуция фокусных частиц в русском языке}
 
@@ -93,22 +96,45 @@
 
 \section[Фокус и скалярные аддитивные операторы]{Фокус и скалярные аддитивные операторы}
 
-В данной главе мы опишем наиболее значимые подходы к анализу фокуса и скалярных аддитивных операторов. В чаcти, посвященной семантике фокуса, мы не будем затрагивать проблему фокусного маркирования (см., тем не менее, Selkirk (1984, 1995) и  Schwarzschild (1999)). Мы постараемся не ограничиваться генеративной традицией и изложим современные функциональные подходы к анализу фокуса.
+В данной главе мы опишем наиболее значимые подходы к анализу фокуса и скалярных аддитивных операторов. В чаcти, посвященной семантике фокуса, мы не будем затрагивать проблему фокусного маркирования (см., тем не менее, \citep{selkirk1984phonology,selkirk199516} и  \citep{Schwarzschild1999}). Мы постараемся не ограничиваться генеративной традицией и изложим современные функциональные подходы к анализу фокуса.
 
-\subsection[Семантика фокуса]{Семантика фокуса}
+\subsection{Семантика фокуса}
 
-Фокус --- грамматическая категория, определяющая ту часть предложения, которая вводит в дискурс новую, не выводимую из предыдущего контекста или контрастивную информацию. Фокус имеет прямое отношение к семантике предложения, поскольку способен влиять на истинностное значение высказывания. Ниже приведен классический пример смыслоразличительной функции фокуса из английского языка:
+\subsection{Семантика фокуса}
+Фокус --- грамматическая категория, выделяющая в высказывании информационный компонент, являющийся новым или важным в том смысле, что говорящий не считает его разделенным между собой и слушающим \citep{Jackendoff1972}.
+
+\medskip
+
+Фокус может выражаться при помощи просодических (\ref{pitchAccentF}, фразовое ударение), синтаксических (\ref{cleftF}, клефт) или морфологических средств (\ref{morphemeF}), а также их комбинаций:
 
 \begin{exe}
-    \ex \begin{xlist}
-        \ex \label{ch2ex1} John only introduced [Bill]\textsubscript{F} to Sue.
-        \ex \label{ch2ex2} John only introduced Bill to [Sue]\textsubscript{F}.
+    \ex
+    \begin{xlist}
+        \ex \label{pitchAccentF} Я ищу \textbf{Машу}.
+        \ex \label{cleftF} It is \textbf{John} we are looking for.
+        \ex \label{morphemeF}
+            \gll Tí bà wúm-\textbf{á} \textit{kwálíngálá}. \\
+                 \textsc{3sg} \textsc{prog} chew-\textsc{foc} colanut \\
+            \glt `He is chewing \textsc{colanut}.' \citep[ex.\ 3b]{hartmann}\footnote{\citep{hartmann} замечают, что фокусный показатель действительно присоединяется к предшествующему глаголу.}
     \end{xlist}
 \end{exe}
 
-В примере (\ref{ch2ex1}) утверждается, что единственным человеком, которого представили Сью, был Билл. В (\ref{ch2ex2}), напротив, говорится, что Билла представили только Сью (в то время как Сью могли также представить Джона, Гарри, etc.)
+Фокус имеет прямое отношение к семантике высказывания, поскольку способен влиять на его истинностное значение. Ниже приведен классический пример смыслоразличительной функции фокуса из английского языка:
+
+\begin{exe}
+    \ex \begin{xlist}
+        \ex \label{truthValues1} John only introduced [Bill]\textsubscript{F}\footnote{Здесь и далее под записью []\textsubscript{F} подразумевается интонационное выделение } to Sue.
+        \ex \label{truthValues2} John only introduced Bill to [Sue]\textsubscript{F}.
+    \end{xlist}
+\end{exe}
+
+В примере (\ref{truthValues1}) утверждается, что единственным человеком, которого представили Сью, был Билл. В (\ref{truthValues2}), напротив, говорится, что Билла представили только Сью (в то время как Сью могли также представить Джона, Гарри, etc.)
 
 \medskip
+
+Фокус может быть ассоциирован 
+
+В разделе \ref{alternativeSemantics} мы дадим описание подхода, основанного на понятии \textit{множества альтернатив}.
 
 Пробуем семантику:
 
@@ -116,27 +142,11 @@
     \ex $ \llbracket \textsc{only} \rrbracket = \lambda P_{<e,t>}.\lambda x_{e}.[ \forall Q_{<e,t>} [Q(x) \land C(Q)] \rightarrow Q = P ]$
 \end{exe}
 
-\subsubsection[Семантика альтернатив (Rooth, 1985)]{Семантика альтернатив (Rooth, 1985)}
+\subsubsection{Семантика альтернатив (Rooth, 1985)} \label{alternativeSemantics}
 
+Blah.
 
-
-\newpage
-\section{Библиография.}
-
-\begin{itemize}
-
-    
-    \item[] \textbf{Rooth, M. 1985.} \textit{Association with Focus.} Ph.D. thesis, UMass. Amherst: Graduate Linguistics Students Association.
-
-    \item[]  \textbf{Rooth, M. 1992.} \textit{A theory of focus interpretation.} Natural Language Semantics 1:75–116. 
-
-    \item[] \textbf{Selkirk, E. 1984.} \textit{Phonology and Syntax: The Relation between Sound and Structure.} Cambridge, MA: MIT Press.
-
-    \item[] \textbf{Selkirk, E. 1995.} \textit{Sentence Prosody: Intonation, Stress, and Phrasing.} In: J. A. Goldsmith (ed.): The Handbook of Phonological Theory. London: Basil Blackwell, pp. 550–569.
-
-    \item[] \textbf{Schwarzschild, R. 1999.} \textit{GIVENness, AvoidF and other Constraints on the Placement of Accent.} Natural Language Semantics 7(2), 141–177.
-
-\end{itemize}
-
+\bibliography{refs} 
+\bibliographystyle{plainnat}
 
 \end{document}
