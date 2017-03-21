@@ -5,6 +5,7 @@
 \usepackage{fixltx2e}
 \usepackage{stmaryrd}
 \usepackage[round, sort]{natbib}
+\usepackage[nottoc,numbib]{tocbibind}
 \usepackage{gb4e}
 \noautomath
 
@@ -94,13 +95,12 @@
 
 \setcounter{page}{1}
 
-\section[Фокус и скалярные аддитивные операторы]{Фокус и скалярные аддитивные операторы}
+\section{Фокус: семантика и прагматика}
 
-В данной главе мы опишем наиболее значимые подходы к анализу фокуса и скалярных аддитивных операторов. В чаcти, посвященной семантике фокуса, мы не будем затрагивать проблему фокусного маркирования (см., тем не менее, \citep{selkirk1984phonology,selkirk199516} и  \citep{Schwarzschild1999}). Мы постараемся не ограничиваться генеративной традицией и изложим современные функциональные подходы к анализу фокуса.
+В данной главе мы опишем наиболее значимые подходы к анализу семантики и прагматики фокуса. 
 
-\subsection{Семантика фокуса}
+\subsection{Определение и общие сведения}
 
-\subsection{Семантика фокуса}
 Фокус --- грамматическая категория, выделяющая в высказывании информационный компонент, являющийся новым или важным в том смысле, что говорящий не считает его разделенным между собой и слушающим \citep{Jackendoff1972}.
 
 \medskip
@@ -113,17 +113,24 @@
         \ex \label{pitchAccentF} Я ищу \textbf{Машу}.
         \ex \label{cleftF} It is \textbf{John} we are looking for.
         \ex \label{morphemeF}
-            \gll Tí bà wúm-\textbf{á} \textit{kwálíngálá}. \\
+            {\footnotesize West Chadic}
+            \gll Tí bà wúm-\textit{á} \textbf{kwálíngálá}. \\
                  \textsc{3sg} \textsc{prog} chew-\textsc{foc} colanut \\
-            \glt `He is chewing \textsc{colanut}.' \citep[ex.\ 3b]{hartmann}\footnote{\citep{hartmann} замечают, что фокусный показатель действительно присоединяется к предшествующему глаголу.}
+            \glt `He is chewing \textbf{colanut}.' \citep[ex.\ 3b]{hartmann}
     \end{xlist}
 \end{exe}
 
+Проблеме различных стратегий фокусного маркирования посвящена обширная литература (см., например, \citep{selkirk1984phonology,selkirk199516,Schwarzschild1999}), однако в данной работе мы не будем детально обсуждать этот вопрос.
+
+\medskip
+
 Фокус имеет прямое отношение к семантике высказывания, поскольку способен влиять на его истинностное значение. Ниже приведен классический пример смыслоразличительной функции фокуса из английского языка:
 
+\newpage
+
 \begin{exe}
-    \ex \begin{xlist}
-        \ex \label{truthValues1} John only introduced [Bill]\textsubscript{F}\footnote{Здесь и далее под записью []\textsubscript{F} подразумевается интонационное выделение } to Sue.
+    \ex \begin{xlist} \label{truthValues}
+        \ex \label{truthValues1} John only introduced [Bill]\textsubscript{F}\footnote{Здесь и далее под записью [<...>]\textsubscript{F} подразумевается фразовый акцент на составляющей.} to Sue.
         \ex \label{truthValues2} John only introduced Bill to [Sue]\textsubscript{F}.
     \end{xlist}
 \end{exe}
@@ -132,9 +139,32 @@
 
 \medskip
 
-Фокус может быть ассоциирован 
+Фокус также может влиять на уместность высказывания в дискурсе:
 
-В разделе \ref{alternativeSemantics} мы дадим описание подхода, основанного на понятии \textit{множества альтернатив}.
+\begin{exe}
+    \ex \begin{xlist} \label{discourseSensitivity}
+        \ex Эту книгу продают на Озоне.
+        \ex Ну и что? Эту книгу продают даже в [Читай-городе]\textsubscript{F}.
+        \ex [\#]{Ну и что? Эту книгу даже [продают]\textsubscript{F} в Читай-городе.}
+    \end{xlist}
+\end{exe}
+
+Смыслоразличительные (или релевантные для дискурса) свойства фокуса наблюдаются в присутствии особых выражений, которые называются \textit{чувствительными к фокусу}; к таким элементам (среди прочих) относятся:
+
+\begin{itemize}\setlength\itemsep{0em}
+    \item[---] Наречия единственности: \textit{только,  лишь, ...;}
+    \item[---] Нескалярные аддитивные операторы: \textit{тоже, ...;}
+    \item[---] Скалярные аддитивные операторы: \textit{даже, аж, ...;}
+    \item[---] Операторы отрицания: \textit{не, нет;} etc.
+\end{itemize}
+
+Свойства, благодаря которым выражение может быть чувствительным к фокусу, обсуждаются подробнее в разделе \ref{qfcTheory}.
+
+\medskip
+
+\subsection{Семантика фокуса}
+
+\subsubsection{Семантика альтернатив \citep{rooth1985association,rooth1992theory}} \label{alternativeSemantics}
 
 Пробуем семантику:
 
@@ -142,10 +172,13 @@
     \ex $ \llbracket \textsc{only} \rrbracket = \lambda P_{<e,t>}.\lambda x_{e}.[ \forall Q_{<e,t>} [Q(x) \land C(Q)] \rightarrow Q = P ]$
 \end{exe}
 
-\subsubsection{Семантика альтернатив (Rooth, 1985)} \label{alternativeSemantics}
+\subsubsection{Структурированные значения \citep{Cresswell1985}} \label{structuredMeanings}
 
-Blah.
+\subsection{Прагматика фокуса}
 
+\subsection{Теория QFC \citep{beaver2008sense}} \label{qfcTheory}
+
+\newpage
 \bibliography{refs} 
 \bibliographystyle{plainnat}
 
