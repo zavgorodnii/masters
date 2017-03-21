@@ -165,7 +165,7 @@
 
 \subsection{Семантика фокуса}
 
-В данном разделе мы обсудим подходы к анализу семантики фокуса. В \ref{alternativeSemantics} мы изложим основные положения \textit{семантики альтернатив} \citep{rooth1985association,rooth1992theory}; в \ref{structuredMeanings} мы рассмотрим иной подход, названный теорией \textit{упорядоченных значений} \citep{Cresswell1985}, а также проведем его сравнение с семантикой альтернатив.
+В данном разделе мы обсудим подходы к анализу семантики фокуса. В \ref{alternativeSemantics} мы изложим основные положения \textit{семантики альтернатив} \citep{rooth1985association,rooth1992theory}; в \ref{structuredMeanings} мы рассмотрим иной подход, названный теорией \textit{структурированных значений} \citep{Cresswell1985}, а также проведем его сравнение с семантикой альтернатив.
 
 \subsubsection{Семантика альтернатив \citep{rooth1985association,rooth1992theory}} \label{alternativeSemantics}
 
@@ -173,11 +173,28 @@
 
 \medskip
 
-Этот подход во многом похож на анализ семантики вопросов в работах \citep{hamblin1973questions,karttunen1977syntax,groenendijk1985semantics}, где интерпретация выражения \textit{What does Andrew smoke?} будет выглядеть как множество альтернатив $ \{ smoke(Andrew, x) \ | \ object(x) \} $. Данное множество --- то, что в \citep{rooth1985association} называется \textsc{фокусным значением} (англ. \textit{fucus semantic value}).
+Этот подход близок к анализу семантики вопросов в работах \citep{hamblin1973questions,karttunen1977syntax}, где интерпретация выражения \textit{What does Andrew smoke?} будет выглядеть как множество ответов $ \{ smoke(A, x) \ | \ object(x) \} $. В литературе разделились мнения относительно того, какого рода ответы должны входить в такое множество: должны ли это быть истинные и возможные \citep{hamblin1973questions}, истинные \citep{karttunen1977syntax} или просто возможные \citep{groenendijk1985semantics} ответы. В любом случае, множество $ \{ smoke(A, x) \ | \ object(x) \} $ --- то, что в \citep{rooth1985association} называется \textsc{фокусным значением} (англ. \textit{focus semantic value}) выражения $ Andrew\ smokes\ [\textsc{cigarettes}]_{F} $.
+
+\medskip
+
+Понятие фокусного значения используется для интерпретации чувствительных к фокусу элементов вроде английского \textit{only} или русского \textit{только}. Предположим, чтот $ S $ --- предложение, содержащее \textit{only} (например, $ Andrew\ smokes\ only\ [\textsc{cigarettes}]_{F} $), а $ M $ и $ R $ --- его фокусное и обычное значения соответственно. $ Only(S) $ означает, что все альтернативы, кроме $ S $, не верны. Мы можем записать сказанное формально:
 
 \begin{exe}
-    \ex $ \llbracket \textsc{only} \rrbracket = \lambda P_{<e,t>}.\lambda x_{e}.[ \forall Q_{<e,t>} [Q(x) \land C(Q)] \rightarrow Q = P ]$
+    \ex \label{simpleAlternatives} $ \forall P \in M, true(p) \rightarrow P = R $
 \end{exe}
+
+В таком случае для предложения выше мы будем иметь следующую интерпретацию:
+
+\begin{exe}
+    \ex \begin{xlist}
+        \ex \textit{Every true proposition stating that Andrew smokes some object is the proposition that Andrew smokes cigarettes.}
+        \ex $ \forall P \in \{ smoke(A, x) \ | \ object(x) \}, true(p) \rightarrow P = smoke(A, c) $
+    \end{xlist}
+\end{exe}
+
+Однако приведенная в (\ref{simpleAlternatives}) интерпретация фокуса не является удовлетворительной в том смысле, что не учитывает \textit{контекст} высказывания, который может значительно ограничивать исходное множество всех возможных альтернатив.
+
+\medskip
 
 \subsubsection{Структурированные значения \citep{Cresswell1985}} \label{structuredMeanings}
 
