@@ -4,6 +4,9 @@
 \usepackage{mathtools}
 \usepackage{fixltx2e}
 \usepackage{stmaryrd}
+\usepackage{tikz}
+\usepackage{qtree}
+\usepackage{pst-tree}
 \usepackage[round, sort]{natbib}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{gb4e}
@@ -227,7 +230,7 @@
     \end{xlist}
 \end{exe}
 
-Заметим, что $ \llbracket . \rrbracket^{o} $ означает здесь ``обычное'' семантическое значение.
+Здесь $ \llbracket . \rrbracket^{o} $ означает ``обычное'' семантическое значение выражения.
 
 \medskip
 
@@ -241,7 +244,34 @@
     \ex \label{tildaOperator} Если $ \phi $ --- синтаксическое выражение, а $ C $ --- синтаксически скрытая семантическая переменная, то $ \phi \sim C $ вводит пресуппозицию, что $ C $ является подмножеством $ \llbracket \phi \rrbracket^{f} $, содержащим $ \llbracket \phi \rrbracket^{o} $ и еще как минимум один элемент. \flushright{\citep[(20)]{rooth1996focus}}
 \end{exe}
 
+Приведем пример интерпретации выражения $ Mary\ only\ introduced\ [\textsc{Bill}]_{F}\ \\ to\ Sue $ с использованием определения из (\ref{tildaOperator}). \citep{rooth1992theory} предлагает следующее лексическое значение для $ only $:
 
+\begin{exe}
+    \ex \label{onlyVPredefined} $ \llbracket only\ VP \rrbracket = \lambda x [\forall P [P \in C \land P(x) \rightarrow P = VP ]] $
+\end{exe}
+
+Здесь $ C $ --- свободная переменная, а под семантическим значением $ VP $ понимается обычное лямбда-выражение:
+
+\begin{exe}
+    \ex $ \lambda z.\lambda y.\lambda x[introduce(x, y, z)] $
+\end{exe}
+
+Если подставить это выражение в (\ref{onlyVPredefined}), имеем следующую деривацию:
+
+\begin{exe}
+  \ex \Tree [.S [.NP Mary ] [.VP  { $ only(C) $ } [.VP \qroof{introduced Bill to Sue}.VP {$ \sim C $} ] ] ]
+\end{exe}
+
+% \begin{exe}
+%   \begin{tikzpicture}[scale=0.75]
+%     \Tree[.S [.NP Mary] [.VP [.NP only(C) ] [.VP [ introduced Bill to Sue] $ \sim C $ ] ] ]
+%   \end{tikzpicture}
+
+% \end{exe}
+
+\begin{exe}
+    \ex $ \lambda x_{1} [\forall P [P \in C \land P(x_{1}) \rightarrow P = \lambda x_{2}[introduce(x_{2}, Bill, Sue) ]] $ \\ $ [\forall P [P \in C \land P(Mary) \rightarrow P = \lambda x_{2}[introduce(x_{2}, Bill, Sue) ]] $.
+\end{exe}
 
 \medskip
 
