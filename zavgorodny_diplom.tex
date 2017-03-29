@@ -263,38 +263,79 @@
   \ex \label{tildaTree} \Tree [.S [.NP Mary ] [.VP  { $ only(C) $ } [.VP \qroof{introduced Bill to Sue}.VP {$ \sim C $} ] ] ]
 \end{exe}
 
-Как видно из (\ref{tildaTree}), фокус интерпретируется на уровне VP. $ C $ здесь является свободной вида $ \{ introduce(x, \bm{Bill}, Sue), introduce(x, \bm{Jack}, Sue), \\ introduce(x, \bm{Kyle}, Sue), ... \} $, то есть содержит все возможные альтернативы (об окончательной фиксации этого множества см. ниже в (\ref{fixingC})).
+Как видно из (\ref{tildaTree}), фокус интерпретируется на уровне VP. $ C $ здесь является свободной вида $ \{ Introduce(x, \bm{Bill}, Sue), Introduce(x, \bm{Jack}, Sue), \\ Introduce(x, \bm{Kyle}, Sue), ... \} $, то есть содержит все возможные альтернативы (об окончательной фиксации этого множества см. ниже в (\ref{fixingC})).
 
 \medskip
 
 \citep{rooth1992theory} предлагает следующее лексическое значение для $ only $:
 
 \begin{exe}
-    \ex \label{onlyVPredefined} $ \llbracket only\ VP \rrbracket = \lambda x [\forall P [P \in C \land P(x) \rightarrow P = VP ]] $
-\end{exe} 
+    \ex \label{onlyVPredefined} $ \llbracket only\ V\!P \rrbracket = \lambda x.[\forall P [P \in C \land P(x) \rightarrow P = V\!P ]] $
+\end{exe}
 
-Под семантическим значением VP понимается обычное лямбда-выражение вида $ \lambda z.\lambda y.\lambda x[introduce(x, y, z)] $. Если подставить это выражение в (\ref{onlyVPredefined}), имеем следующую деривацию:
+Под семантическим значением VP понимается обычное лямбда-выражение вида $ \lambda z.\lambda y.\lambda x.[Introduce(x, y, z)] $. Если подставить это выражение в (\ref{onlyVPredefined}), имеем следующую деривацию:
 
 \begin{exe}
-    \ex \label{} $ \lambda x_{1} [\forall P [P \in C \land P(x_{1}) \rightarrow P = \lambda x_{2}[introduce(x_{2}, Bill, Sue) ]] $ \\ $ [\forall P [P \in C \land P(Mary) \rightarrow P = \lambda x_{2}[introduce(x_{2}, Bill, Sue) ]] $
+    \ex \label{} $ \lambda x_{1} .[\forall P [P \in C \land P(x_{1}) \rightarrow P = \lambda x_{2}.Introduce(x_{2}, Bill, Sue) ] $ \\ $ [\forall P [P \in C \land P(Mary) \rightarrow P = \lambda x_{2}.Introduce(x_{2}, Bill, Sue) ] $
 \end{exe}
 
 Как мы видим, результатом интерпретации на уровне семантики является выражение со свободной переменной $ C $. В \citep{rooth1992theory} предлагается считать, что окончательная фиксация значения этой переменной происходит на уровне прагматики. В примере (\ref{fixingCtext}) множество альтернатив дополнительно ограничено контекстом:
 
 \begin{exe}
     \ex \label{fixingCtext} \begin{xlist}
-        \ex --- $ Who\ did\ Mary\ introduce\ to\ Sue,\ Bill\ or\ John? $
-        \ex --- $ Mary\ only\ introduced\ [\textsc{Bill}]_{F}\ to\ Sue. $
+        \ex $ Who\ did\ Mary\ introduce\ to\ Sue,\ Bill\ or\ John? $
+        \ex $ Mary\ only\ introduced\ [\textsc{Bill}]_{F}\ to\ Sue. $
     \end{xlist}
 \end{exe}
 
 Результат интерпретации (\ref{fixingCtext}) на уровне прагматики будет выглядеть так: 
 
 \begin{exe}
-    \ex \label{fixingC} $ \exists C [ C = \{ introduce(x, \bm{Bill}, Sue), introduce(x, \bm{Jack}, Sue) \\ \land [\forall P [P \in C \land P(Mary) \rightarrow P = \lambda x_{2}[introduce(x_{2}, Bill, Sue) ]]] $
+    \ex \label{fixingC} $ \exists C [ C = \{ Introduce(x, \bm{Bill}, Sue), Introduce(x, \bm{Jack}, Sue) \} \\ \land [\forall P [P \in C \land P(Mary) \rightarrow P = \lambda x_{2}.Introduce(x_{2}, Bill, Sue) ]] $
 \end{exe}
 
-\subsubsection{Структурированные значения \citep{Cresswell1985}} \label{structuredMeanings}
+Стоит заметить, что конкретный механизм ограничения набора приемлемых альтернатив в \citep{rooth1992theory} не рассматривается.
+
+\subsubsection{Структурированные значения \citep{Cresswell1985,krifka1991compositional}} \label{structuredMeanings}
+
+Теория \textit{структурированных значений} \citep{Cresswell1985,chierchia1989structured,krifka1991compositional} похожа на семантику альтернатив тем, что предполагает наличие двух компонент в интерпретации фокусного высказывания. Однако если в семантике альтернатив этими компонентами были стандартное и фокусное значение, то структурированным значением является кортежем из \textit{вопроса} (фона, англ. \textit{background}) и простого \textit{ответа} (фокуса):
+
+\begin{exe}
+    \ex \label{structuredIntro} \begin{xlist}
+        \ex $ Kyle\ hates\ the\ [\textsc{fatboy}]_{F} $
+        \ex $ \langle \lambda x.Hate(Kyle, x), \imath\ f\!atboy \rangle $
+    \end{xlist}
+\end{exe}
+
+Обычное значение выражения получается путем функционального применения фона к фокусу. Если фокус находится на предикате $ Kyle\\~ [\textsc{hates}]_{F}\ the\ f\!atboy $, то значение должно выглядеть как
+
+
+\begin{exe}
+    \ex $ \langle \lambda P.[P(Kyle, \imath\ f\!atboy)], hate \rangle $
+\end{exe}
+
+\medskip
+
+Для случаев, когда выражение содержит несколько элементов, несущих фокус, требуется введение операций над \textit{составными объектами} \citep{krifka1991compositional}. Так, для интерпретации выражения $ Mary\ introduced\ [\textsc{Bill}]_{F}\\to\ [\textsc{Sue}]_{F} $ мы должны ввести операцию лямбда-абстракции относительно списков переменных:
+
+\begin{exe}
+    \ex $ \langle \lambda [x,y].Introduce(Mary, x, y), [Bill, Sue] \rangle $
+\end{exe}
+
+Также необходимо ввести правила для функционального применения выражения $ A $ к $ B $, если оба этих выражения являются кортежами \textit{фон, фокус}. Для этого введем операцию конкатенации списков:
+
+\begin{exe}
+    \ex $ [x_1, ..., x_i] \sqcap [y_1, ..., y_j] = [x_1, ..., x_i, y_1, ..., y_j] $
+\end{exe}
+
+
+Тогда для выражений $ A $ и $ B $, имеющих структурированные значения $ \langle \alpha_b, \alpha_f \rangle $ и $ \langle \beta_b, \beta_f \rangle $ соответственно, применение $ AB $ будет иметь следующий вид:
+
+\begin{exe}
+    \ex $ \langle \lambda[x, y].\alpha_b(x)(\beta_b(y)), \alpha_f \sqcap \beta_f \rangle $
+\end{exe}
+
+Для удобства нотации введем следующие обозначения. Пусть вырожденные случаи лямбда-абстракции и функционального применения не будут иметь никакого эффекта: $ \lambda \langle\ \rangle\!=\!\phi $ и $ \phi(\langle\ \rangle)\!=\!\phi $. Тогда будем считать, что ``$ \langle \phi $'' означает ``$ \langle \phi, [\ ] \rangle $'', т.е. структурированное значение с фоном, но без фокуса; также положим, что ``$ \phi \rangle $'' означает `` $ \langle \lambda X.X, \phi \rangle $'', т.е. фокус с тривиальным фоном (чисто фокусное значение). 
 
 \subsection{Прагматика фокуса}
 
