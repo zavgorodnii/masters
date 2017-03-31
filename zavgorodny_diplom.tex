@@ -391,7 +391,7 @@
             gave                                    &\mapsto \langle Give                                   \\
             gave\ [Kyle]_{F}                        &\mapsto \langle Give, k \rangle                        \\
             cigarettes                              &\mapsto \langle c                                      \\
-            gave\ [Kyle]_{F}\ cigarettes            &\mapsto \langle \lambda x. Give(x)(c), k \rangle       \\
+            gave\ [Kyle]_{F}\ cigarettes            &\mapsto \langle \lambda \beta. Give(\beta)(c), k \rangle       \\
             Andrew                                  &\mapsto \langle a                                      \\
             Andrew\ gave\ [Kyle]_{F}\ cigarettes    &\mapsto \langle \lambda x. Give(a)(x)(c), k \rangle    \\
         \end{align*}
@@ -400,7 +400,7 @@
 Далее, для конфигурации $ \llbracket only(V\!P) \rrbracket $ предлагается следующая интерпретация:
 
 \begin{exe}
-    \ex $ \lambda[B,F].[\langle \lambda x.\forall \gamma [B(\gamma)(x) \rightarrow \gamma = F ]] $
+    \ex $ \lambda[B,F].\langle \lambda x.\forall \gamma [B(\gamma)(x) \rightarrow \gamma = F ] $
 \end{exe}
 
 В таком случае мы имеем следующую интерпретацию выражения $ Andrew\ only\ gave\ [\textsc{Kyle}]_{F}\ cigarettes $:
@@ -408,13 +408,14 @@
 \begin{exe}
     \ex \label{derivingStruct}
         \begin{align*}
-            only                                        &\mapsto \lambda[B,F].[\langle \lambda x.\forall \gamma [B(\gamma)(x) \rightarrow \gamma = F ]] \\
-            only\ gave\ [Kyle]_{F}\ cigarettes           &\mapsto \langle \lambda x.\forall \gamma [\lambda \beta.Give(\beta)(c)](\gamma)(x) \rightarrow \gamma = b \rangle       \\
-                                                        &\mapsto \langle \lambda x.\forall \gamma [Give(\gamma)(c)(x)] \rightarrow \gamma = b \\
+            only                                        &\mapsto \lambda[B,F].\langle \lambda x.\forall \gamma [B(\gamma)(x) \rightarrow \gamma = F ] \\
+            only\ gave\ [Kyle]_{F}\ cigarettes          &\mapsto \langle \lambda x.\forall \gamma [\lambda [\beta.Give(\beta)(c)](\gamma)(x) \rightarrow \gamma = b] \\
+                                                        &\mapsto \langle \lambda x.\forall \gamma [Give(\gamma)(c)(x) \rightarrow \gamma = b] \\
             Andrew                                      &\mapsto \langle a                                      \\
-            Andrew\ only\ gave\ [Kyle]_{F}\ cigarettes  &\mapsto \langle \forall \gamma [Give(\gamma)(c)(a)] \rightarrow \gamma = b   \\
+            Andrew\ only\ gave\ [Kyle]_{F}\ cigarettes  &\mapsto \langle \forall \gamma [Give(\gamma)(c)(a) \rightarrow \gamma = b ]   \\
         \end{align*}
 \end{exe} 
+
 
 \subsection{Прагматика фокуса}
 
