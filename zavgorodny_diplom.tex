@@ -11,8 +11,10 @@
 \usepackage[round, sort]{natbib}
 \usepackage[nottoc,numbib]{tocbibind}
 \usepackage{gb4e}
-\noautomath
 
+\noautomath
+\newcommand*{\LargerCdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
+\newcommand*{\LargeCdot}{\raisebox{-0.25ex}{\scalebox{1.8}{$\cdot$}}}
 % COMPILE WITH: reset && pdflatex zavgorodny_diplom.tex && bibtex zavgorodny_diplom && pdflatex zavgorodny_diplom.tex && pdflatex zavgorodny_diplom.tex
 
 \title{Семантика и дистрибуция фокусных частиц в русском языке}
@@ -263,7 +265,7 @@
   \ex \label{tildaTree} \Tree [.S [.NP Mary ] [.VP  { $ only(C) $ } [.VP \qroof{introduced Bill to Sue}.VP {$ \sim C $} ] ] ]
 \end{exe}
 
-Как видно из (\ref{tildaTree}), фокус интерпретируется на уровне VP. $ C $ здесь является свободной вида $ \{ Introduce(x, \bm{Bill}, Sue), Introduce(x, \bm{Jack}, Sue), \\ Introduce(x, \bm{Kyle}, Sue), ... \} $, то есть содержит все возможные альтернативы (об окончательной фиксации этого множества см. ниже в (\ref{fixingC})).
+Как видно из (\ref{tildaTree}), фокус интерпретируется на уровне VP. $ C $ здесь является свободной переменной и ведет себя как ``местоимение'', отсылающее ко множеству доступных альтернатив; после окончания деривации оно должно быть заполнено альтернативами вида $ \{ Introduce(x, \bm{Bill}, Sue),\\Introduce(x, \bm{Jack}, Sue), Introduce(x, \bm{Kyle}, Sue), ... \} $ (о фиксации этого множества см. ниже в (\ref{fixingC})).
 
 \medskip
 
@@ -296,9 +298,9 @@
 
 Стоит заметить, что конкретный механизм ограничения набора приемлемых альтернатив в \citep{rooth1992theory} не рассматривается.
 
-\subsubsection{Структурированные значения \citep{Cresswell1985,krifka1991compositional}} \label{structuredMeanings}
+\subsubsection{Структурированные значения \citep{klein1982intonation,krifka1992compositional}} \label{structuredMeanings}
 
-Теория \textit{структурированных значений} \citep{Cresswell1985,chierchia1989structured,krifka1991compositional} похожа на семантику альтернатив тем, что предполагает наличие двух компонент в интерпретации фокусного высказывания. Однако если в семантике альтернатив этими компонентами были стандартное и фокусное значение, то структурированным значением является кортежем из \textit{вопроса} (фона, англ. \textit{background}) и простого \textit{ответа} (фокуса):
+Теория \textit{структурированных значений} \citep{klein1982intonation,krifka1992compositional} похожа на семантику альтернатив тем, что предполагает наличие двух компонент в интерпретации фокусного высказывания. Однако если в семантике альтернатив этими компонентами были стандартное и фокусное значение, то структурированным значением является кортежем из \textit{вопроса} (фона, англ. \textit{background}) и простого \textit{ответа} (фокуса):
 
 \begin{exe}
     \ex \label{structuredIntro} \begin{xlist}
@@ -309,14 +311,54 @@
 
 Обычное значение выражения получается путем функционального применения фона к фокусу. Если фокус находится на предикате $ Kyle\\~ [\textsc{hates}]_{F}\ the\ f\!atboy $, то значение должно выглядеть как
 
+\begin{exe}
+    \ex \label{structuredIntroPredicate} $ \langle \lambda P.[P(Kyle, \imath\ f\!atboy)], hate \rangle $
+\end{exe}
+
+В примерах (\ref{structuredIntro}, \ref{structuredIntroPredicate}) можно наблюдать не совсем типичную репрезентацию значения высказывания. Очевидно, что при классическом композициональном подходе невозможно добиться лямбда-абстракции внутреннего аргумента глагола при фиксированном внешнем аргументе (i.e., $ \lambda x.Hate(Kyle, x) $).
+
+\medskip
+
+В \citep{krifka1992compositional} для решения данной проблемы предлагается достаточно сложная альтернатива стандартному правилу функционального применения. Мы приведем (в целях ознакомления) определение семантических типов и формулировку \textit{расширенного} функционального применения, однако в дальнейшем будем использовать упрощенную нотацию, предлагаемую в \citep{beaver2008sense}.
+
+\medskip
+
 
 \begin{exe}
-    \ex $ \langle \lambda P.[P(Kyle, \imath\ f\!atboy)], hate \rangle $
+    \ex Семантические типы:
+    \begin{xlist}
+        \ex $ e $ есть тип сущностей, $ t $ --- тип истинностных значений.
+        \ex Если $ \sigma, \tau $ --- типы, то:
+        \begin{xlisti}
+            \ex $ \sigma(\tau) $ есть тип функций от $ \sigma- $денотаций к $ \tau- $денотациям;
+            \ex $ \sigma \LargeCdot \tau $ есть тип списка $ \sigma- $денотаций и $ \tau- $денотаций;
+            \ex $ \langle \sigma, \tau \rangle $ есть тип структуры фон---фокус.
+            
+        \end{xlisti}
+    \end{xlist}
+\end{exe}
+
+
+\begin{exe}
+    \ex Расширенное функциональное применение ``(\ )'':
+    \begin{xlist}
+        \ex Если $ \alpha $ имеет тип $ \sigma(\tau) $ и $ \beta $ имеет тип $ \sigma $, то $ \alpha(\beta) $ имеет тип $ \tau $ и означает функциональное применение;
+        \ex \textit{{\footnotesize Наследование фокуса от оператора:}}\\
+        Если $ \langle \alpha, \beta \rangle $ имеет тип $ \langle (\sigma)(\tau)\mu, \sigma^{\LargerCdot} \rangle $ и $ \gamma $ имеет тип $ \tau $, то $ \langle \alpha, \beta \rangle(\gamma) $ имеет тип $ \langle (\sigma)\mu, \sigma^{\LargerCdot} \rangle $ и интерпретируется как $ \langle \lambda X_{\sigma}.[\alpha(X)(\gamma)], \beta \rangle $;
+        \ex \textit{{\footnotesize Наследование фокуса от аргумента:}}\\
+        Если $ \gamma $ имеет тип $ (\sigma)\tau $ и $ \langle \alpha, \beta \rangle $ имеет тип $ \langle (\mu)\sigma, \mu^{\LargerCdot} \rangle $, то $ \gamma(\langle \alpha, \beta \rangle) $ имеет тип $ \langle (\mu)\tau, \mu^{\LargerCdot} \rangle $;
+        \ex \textit{{\footnotesize Наследование фокуса от оператора и аргумента:}}\\
+        Если $ \langle \alpha, \beta \rangle $ имеет тип $ \langle (\sigma)(\tau)\mu, \sigma^{\LargerCdot} \rangle $ и $ \langle \gamma, \delta \rangle $ имеет тип $ \langle (\upsilon)\tau, \upsilon^{\LargerCdot} \rangle $, то $ \langle \alpha, \beta \rangle(\langle \gamma, \delta \rangle) $ имеет тип $ \langle (\sigma \LargeCdot \upsilon)\mu, \sigma^{\LargerCdot} \LargeCdot \upsilon^{\LargerCdot} \rangle $ и интерпретируется как $ \langle \lambda X_{\sigma} \LargeCdot Y_{\upsilon}.[\alpha(X)(\gamma(Y))], \beta \LargeCdot \delta \rangle $.
+    \end{xlist}
 \end{exe}
 
 \medskip
 
-Для случаев, когда выражение содержит несколько элементов, несущих фокус, требуется введение операций над \textit{составными объектами} \citep{krifka1991compositional}. Так, для интерпретации выражения $ Mary\ introduced\ [\textsc{Bill}]_{F}\\to\ [\textsc{Sue}]_{F} $ мы должны ввести операцию лямбда-абстракции относительно списков переменных:
+Как было замечено выше, \citep{beaver2008sense} предлагают упрощенное представление деривации в рамках теории структурированных значений; мы будем придерживаться этой упрощенной нотации.
+
+\medskip
+
+Для случаев, когда выражение содержит несколько элементов, несущих фокус, требуется введение операций над \textit{составными объектами} \citep{krifka1992compositional}. Так, для интерпретации выражения $ Mary\ introduced\ [\textsc{Bill}]_{F}\\to\ [\textsc{Sue}]_{F} $ мы должны ввести операцию лямбда-абстракции относительно списков переменных:
 
 \begin{exe}
     \ex $ \langle \lambda [x,y].Introduce(Mary, x, y), [Bill, Sue] \rangle $
@@ -336,6 +378,43 @@
 \end{exe}
 
 Для удобства нотации введем следующие обозначения. Пусть вырожденные случаи лямбда-абстракции и функционального применения не будут иметь никакого эффекта: $ \lambda \langle\ \rangle\!=\!\phi $ и $ \phi(\langle\ \rangle)\!=\!\phi $. Тогда будем считать, что ``$ \langle \phi $'' означает ``$ \langle \phi, [\ ] \rangle $'', т.е. структурированное значение с фоном, но без фокуса; также положим, что ``$ \phi \rangle $'' означает `` $ \langle \lambda X.X, \phi \rangle $'', т.е. фокус с тривиальным фоном (чисто фокусное значение). 
+
+\medskip
+
+Рассмотрим теперь деривацию\footnote{Еще раз отметим, что приведенная деривация является упрощенной записью достаточно сложного формализма, разработанного в \citep{krifka1992compositional}.} выражения $ Andrew\ gave\ [\textsc{Kyle}]_{F}\ cigarettes $ \citep[4.15]{beaver2008sense}:
+
+\begin{exe}
+    \ex \label{derivingStruct}
+        \begin{align*}
+            Kyle                                    &\mapsto \langle k                                      \\
+            [Kyle]_{F}                              &\mapsto k \rangle                                      \\
+            gave                                    &\mapsto \langle Give                                   \\
+            gave\ [Kyle]_{F}                        &\mapsto \langle Give, k \rangle                        \\
+            cigarettes                              &\mapsto \langle c                                      \\
+            gave\ [Kyle]_{F}\ cigarettes            &\mapsto \langle \lambda x. Give(x)(c), k \rangle       \\
+            Andrew                                  &\mapsto \langle a                                      \\
+            Andrew\ gave\ [Kyle]_{F}\ cigarettes    &\mapsto \langle \lambda x. Give(a)(x)(c), k \rangle    \\
+        \end{align*}
+\end{exe} 
+
+Далее, для конфигурации $ \llbracket only(V\!P) \rrbracket $ предлагается следующая интерпретация:
+
+\begin{exe}
+    \ex $ \lambda[B,F].[\langle \lambda x.\forall \gamma [B(\gamma)(x) \rightarrow \gamma = F ]] $
+\end{exe}
+
+В таком случае мы имеем следующую интерпретацию выражения $ Andrew\ only\ gave\ [\textsc{Kyle}]_{F}\ cigarettes $:
+
+\begin{exe}
+    \ex \label{derivingStruct}
+        \begin{align*}
+            only                                        &\mapsto \lambda[B,F].[\langle \lambda x.\forall \gamma [B(\gamma)(x) \rightarrow \gamma = F ]] \\
+            only\ gave\ [Kyle]_{F}\ cigarettes           &\mapsto \langle \lambda x.\forall \gamma [\lambda \beta.Give(\beta)(c)](\gamma)(x) \rightarrow \gamma = b \rangle       \\
+                                                        &\mapsto \langle \lambda x.\forall \gamma [Give(\gamma)(c)(x)] \rightarrow \gamma = b \\
+            Andrew                                      &\mapsto \langle a                                      \\
+            Andrew\ only\ gave\ [Kyle]_{F}\ cigarettes  &\mapsto \langle \forall \gamma [Give(\gamma)(c)(a)] \rightarrow \gamma = b   \\
+        \end{align*}
+\end{exe} 
 
 \subsection{Прагматика фокуса}
 
