@@ -218,11 +218,11 @@
 
 \medskip
 
-Проблемой семантики альтернатив в её форме, изложенной в \citep{rooth1985association}, является то, что с её помощью невозможно описать механизм ассоциации с фокусом в целом; нам необходимо прописывать правила для каждой чувствительной к фокусу конструкции по отдельности (как было сделано выше для $ only $). \citep{rooth1992theory} предлагает называть такие теории интерпретации фокуса \textit{слабыми}, а также разрабатывает собственную \textit{сильную} теорию интерпретации фокуса, которая не требует формулировки правил для отдельных конструкций.
+Проблемой семантики альтернатив в её форме, изложенной в \citep{rooth1985association}, является то, что с её помощью невозможно описать механизм ассоциации с фокусом в целом; нам необходимо прописывать правила ассоциации с фокусом для каждого типа чувствительной конструкции по отдельности. \citep{rooth1992theory} предлагает называть такие теории интерпретации фокуса \textit{слабыми}. Например, в интерпретации для $ only(S) $ используется отсылка к $ ALT $, значение которого определяется \textit{фокусным} значением $ S $.
 
 \medskip
 
-\citep{rooth1992theory} начинает с перечисления конструкций, с которыми может работать семантика альтернатив.
+\citep{rooth1992theory} разрабатывает собственную \textit{сильную} теорию интерпретации фокуса, которая не требует формулировки правил для отдельных конструкций. Перечислим типы конструкций, чувствительных к фокусу:
 
 \begin{exe}
     \ex \begin{xlist} \label{focusConstructions}
@@ -237,11 +237,11 @@
 
 \medskip
 
-Далее замечается, что с точки зрения взаимодействия с фокусом все приведенные выше случаи сводятся либо к принадлежности некого элемента к фокусному значению, либо к нестрогому включению некого множества в фокусное значение.
+Далее замечается, что в каждой из приведенных конструкций речь идет о том, что некий семантический объект является либо элементом, либо подмножеством фокусного значения высказывания. Разница между этими случаями заключается в типе (в широком смысле) семантического объекта, причем перечисление возможных типов не должно входить в собственно теорию \textit{фокуса}.
 
 \medskip
 
-На основе этого делается вывод о том, что описание конкретной семантики элемента или множества, вступающего во взаимодействие с фокусом, не является частью собственно \textit{теории фокуса}. Репертуар семантики альтернатив сокращается до единственного оператора $ \sim $ \citep{rooth1992theory}:
+На основании этих рассуждений репертуар семантики альтернатив сокращается до единственного оператора $ \sim $ \citep{rooth1992theory}:
 
 \begin{exe} 
     \ex \label{tildaOperator} Если $ \phi $ --- синтаксическое выражение, то $ \phi \sim C $ вводит пресуппозицию, что:
@@ -250,6 +250,14 @@
         \ex $ C \in \llbracket \phi \rrbracket^{f} $ и $ C \neq \phi $, если $ C $ --- индивидуальный элемент.
     \end{xlist}
 \end{exe}
+
+Преимуществом такого правила для интерпретации фокуса является тот факт, что мы не должны упоминать в нём конкретные конструкции, вступающие во взаимодействие с фокусом. Фокус просто вводит в интерпретацию \textit{некую} свободную переменную $ C $ и устанавливает ограничения на семантику (семантический тип) только \textit{этой переменной}. Более того, при задании семантического значения ``чувствительных к фокусу'' элементов мы можем в принципе обойтись без упоминания понятия фокуса; например, в \citep{rooth1992theory} для $ only(V\!P) $ предлагается следующая интерпретация:
+
+\begin{exe}
+    \ex \label{onlyVPredefined} $ \llbracket only\ V\!P \rrbracket = \lambda x.[\forall P [P \in C \land P(x) \rightarrow P = V\!P ]] $
+\end{exe}
+
+Здесь важно еще раз подчеркнуть, что $ C $ --- просто некая свободная переменная. Удаляя упоминания фокуса из семантического значения, мы также решаем проблему, связанную со случаями употребления $ only $ без эксплицитно выраженного фокуса (подробнее об этом см. раздел \ref{focusPragmatics}).
 
 \medskip
 
@@ -262,18 +270,12 @@
 Дерево синтаксического разбора для этого примера будет выглядеть приблизительно так:
 
 \begin{exe}
-  \ex \label{tildaTree} \Tree [.S [.NP Mary ] [.VP  { $ only(C) $ } [.VP \qroof{introduced Bill to Sue}.VP {$ \sim C $} ] ] ]
+  \ex \label{tildaTree} \Tree [.S [.NP Mary ] [.VP  { $ only(C) $ } [.VP \qroof{$ introduced\ [Bill]_{F}\ to\ Sue $}.VP {$ \sim C $} ] ] ]
 \end{exe}
 
 Как видно из (\ref{tildaTree}), фокус интерпретируется на уровне VP. $ C $ здесь является свободной переменной и ведет себя как ``местоимение'', отсылающее ко множеству доступных альтернатив; после окончания деривации оно должно быть заполнено альтернативами вида $ \{ Introduce(x, \bm{Bill}, Sue),\\Introduce(x, \bm{Jack}, Sue), Introduce(x, \bm{Kyle}, Sue), ... \} $ (о фиксации этого множества см. ниже в (\ref{fixingC})).
 
 \medskip
-
-\citep{rooth1992theory} предлагает следующее лексическое значение для $ only $:
-
-\begin{exe}
-    \ex \label{onlyVPredefined} $ \llbracket only\ V\!P \rrbracket = \lambda x.[\forall P [P \in C \land P(x) \rightarrow P = V\!P ]] $
-\end{exe}
 
 Под семантическим значением VP понимается обычное лямбда-выражение вида $ \lambda z.\lambda y.\lambda x.[Introduce(x, y, z)] $. Если подставить это выражение в (\ref{onlyVPredefined}), имеем следующую деривацию:
 
@@ -385,8 +387,8 @@
 
 \begin{exe}
     \ex \label{derivingStruct}
-        \begin{align*}
-            Kyle                                    &\mapsto \langle k                                      \\
+        \begin{flalign*}
+            Kyle                                    &\mapsto \langle k &                                    \\
             [Kyle]_{F}                              &\mapsto k \rangle                                      \\
             gave                                    &\mapsto \langle Give                                   \\
             gave\ [Kyle]_{F}                        &\mapsto \langle Give, k \rangle                        \\
@@ -394,7 +396,7 @@
             gave\ [Kyle]_{F}\ cigarettes            &\mapsto \langle \lambda \beta. Give(\beta)(c), k \rangle       \\
             Andrew                                  &\mapsto \langle a                                      \\
             Andrew\ gave\ [Kyle]_{F}\ cigarettes    &\mapsto \langle \lambda x. Give(a)(x)(c), k \rangle    \\
-        \end{align*}
+        \end{flalign*}
 \end{exe} 
 
 Далее, для конфигурации $ \llbracket only(V\!P) \rrbracket $ предлагается следующая интерпретация:
@@ -408,29 +410,26 @@
 \begin{exe}
     \ex \label{derivingStruct}
         \begin{align*}
-            only                                        &\mapsto \lambda[B,F].\langle \lambda x.\forall \gamma [B(\gamma)(x) \rightarrow \gamma = F ] \\
-            only\ gave\ [Kyle]_{F}\ cigarettes          &\mapsto \langle \lambda x.\forall \gamma [\lambda [\beta.Give(\beta)(c)](\gamma)(x) \rightarrow \gamma = b] \\
-                                                        &\mapsto \langle \lambda x.\forall \gamma [Give(\gamma)(c)(x) \rightarrow \gamma = b] \\
-            Andrew                                      &\mapsto \langle a                                      \\
-            Andrew\ only\ gave\ [Kyle]_{F}\ cigarettes  &\mapsto \langle \forall \gamma [Give(\gamma)(c)(a) \rightarrow \gamma = b ]   \\
+            only                                          &\mapsto \lambda[B,F].\langle \lambda x.\forall \gamma [B(\gamma)(x) \rightarrow \gamma = F ] \\
+            only\ gave\ [Kyle]_{F}\ cigarettes            &\mapsto \langle \lambda x.\forall \gamma [\lambda [\beta.Give(\beta)(c)](\gamma)(x) \rightarrow \gamma = b] \\
+                                                          &\mapsto \langle \lambda x.\forall \gamma [Give(\gamma)(c)(x) \rightarrow \gamma = b] \\
+            Andrew                                        &\mapsto \langle a                                      \\
+            Andrew\ only\ gave \\ [Kyle]_{F}\ cigarettes  &\mapsto \langle \forall \gamma [Give(\gamma)(c)(a) \rightarrow \gamma = b ]   \\
         \end{align*}
 \end{exe} 
 
 
-\subsection{Прагматика фокуса}
+\subsection{Прагматика фокуса}\label{focusPragmatics}
 
-\subsection{Теория QFC \citep{beaver2008sense}} \label{qfcTheory}
+В данном разделе мы кратко рассмотрим подходы к анализу фокуса с точки зрения прагматики.
+
+\subsubsection{Обзор прагматических подходов к анализу фокуса}
+
+В разделе \ref{alternativeSemantics} упоминалось, что в рамках семантики альтернатив \citep{rooth1985association,rooth1992theory} фокус не устанавливает значение свободной переменной, а лишь накладывает на него определенные ограничения (например, на тип элементов, которые могут входить во множество альтернатив). 
+
+\subsubsection{Фиксация набора альтернатив: детальный анализ}
 
 \section{Фокус и фокусные операторы}
-
-Смыслоразличительные (или релевантные для дискурса) свойства фокуса наблюдаются в присутствии особых выражений, которые называются \textit{чувствительными к фокусу}; к таким элементам (среди прочих) относятся:
-
-\begin{itemize}\setlength\itemsep{0em}
-    \item[---] Наречия единственности: \textit{только,  лишь, ...;}
-    \item[---] Нескалярные аддитивные операторы: \textit{тоже, ...;}
-    \item[---] Скалярные аддитивные операторы: \textit{даже, аж, ...;}
-    \item[---] Операторы отрицания: \textit{не, нет;} etc.
-\end{itemize}
 
 \newpage
 \bibliography{refs} 
