@@ -211,7 +211,7 @@
 
 \begin{exe}
     \ex \label{salientAlternatives}
-        $ \llbracket only(S) \rrbracket = \forall P \in ALT\ [true(p) \rightarrow (p = S')] $, где S' --- это обычное значение высказывания $ S $, а $ ALT $ --- множество контекстно уместных альтернатив, причем $ ALT $ является подмножеством фокусного значения $ S $.
+        $ \llbracket only(S) \rrbracket = \forall P \in ALT\ [true(P) \rightarrow (P = S')] $, где S' --- это обычное значение высказывания $ S $, а $ ALT $ --- множество контекстно уместных альтернатив, причем $ ALT $ является подмножеством фокусного значения $ S $.
 \end{exe}
 
 Для примера (\ref{restrictedAlternatives}) $ ALT $ будет множеством, состоящим из двух пропозиций: $ \{ Andrew\ smokes\ cigarettes,\ Andrew\ smokes\ pipe \} $.
@@ -226,10 +226,10 @@
 
 \begin{exe}
     \ex \begin{xlist} \label{focusConstructions}
-        \ex \textbf{Фокусные наречия.} Если $ C $ --- область квантификации фокусного наречия с аргументом $ \alpha $ , то $ C \subseteq \llbracket \alpha \rrbracket^{f}. $ \\ Пример: \textit{only}.
-        \ex \textbf{Контрастирующие выражения.} Если выражение $ \alpha $ контрастирует с выражением $ \beta $, то $ \llbracket \beta \rrbracket^{o} \in \llbracket \alpha \rrbracket^{f}. $ \\ Пример: [\textsc{Русский}]\textsubscript{F} \textit{солдат встречает} [\textsc{американского}]\textsubscript{F} \textit{солдата.}
-        \ex \textbf{Выражения со скалярной импликацией.} Если $ C $ --- упорядоченное множество, использующееся для формирования импликатуры выражения $ \alpha $, то $ C \subseteq \llbracket \alpha \rrbracket^{f}. $ \\ Пример: \textit{Как прошел экзамен? --- Ну, я} [\textsc{сдал}]\textsubscript{F} (\textit{сдать на отлично}$ \implies $\textit{сдать}).
-        \ex \textbf{Выражения типа ``вопрос--ответ''.} Для пары вопрос--ответ $ \langle \beta, \alpha \rangle $ верно, что $ \llbracket \beta \rrbracket^{o}  \subseteq \llbracket \alpha \rrbracket^{f}. $ \\ Пример: см. пример (\ref{pitchAccentVSfocus}).
+        \ex \textbf{Фокусные наречия.} Если $ C $ --- область квантификации фокусного наречия с аргументом $ \alpha $ , то $ C \subseteq \llbracket \alpha \rrbracket^{F}. $ \\ Пример: \textit{only}.
+        \ex \textbf{Контрастирующие выражения.} Если выражение $ \alpha $ контрастирует с выражением $ \beta $, то $ \llbracket \beta \rrbracket^{o} \in \llbracket \alpha \rrbracket^{F}. $ \\ Пример: [\textsc{Русский}]\textsubscript{F} \textit{солдат встречает} [\textsc{американского}]\textsubscript{F} \textit{солдата.}
+        \ex \textbf{Выражения со скалярной импликацией.} Если $ C $ --- упорядоченное множество, использующееся для формирования импликатуры выражения $ \alpha $, то $ C \subseteq \llbracket \alpha \rrbracket^{F}. $ \\ Пример: \textit{Как прошел экзамен? --- Ну, я} [\textsc{сдал}]\textsubscript{F} (\textit{сдать на отлично}$ \implies $\textit{сдать}).
+        \ex \textbf{Выражения типа ``вопрос--ответ''.} Для пары вопрос--ответ $ \langle \beta, \alpha \rangle $ верно, что $ \llbracket \beta \rrbracket^{o}  \subseteq \llbracket \alpha \rrbracket^{F}. $ \\ Пример: см. пример (\ref{pitchAccentVSfocus}).
     \end{xlist}
 \end{exe}
 
@@ -246,8 +246,8 @@
 \begin{exe} 
     \ex \label{tildaOperator} Если $ \phi $ --- синтаксическое выражение, то $ \phi \sim C $ вводит пресуппозицию, что:
     \begin{xlist}
-        \ex $ C \subseteq \llbracket \phi \rrbracket^{f} $, содержащим $ \llbracket \phi \rrbracket^{o} $ и еще как минимум один элемент, если $ C $ --- множество;
-        \ex $ C \in \llbracket \phi \rrbracket^{f} $ и $ C \neq \phi $, если $ C $ --- индивидуальный элемент.
+        \ex $ C \subseteq \llbracket \phi \rrbracket^{F} $, содержащим $ \llbracket \phi \rrbracket^{o} $ и еще как минимум один элемент, если $ C $ --- множество;
+        \ex $ C \in \llbracket \phi \rrbracket^{F} $ и $ C \neq \phi $, если $ C $ --- индивидуальный элемент.
     \end{xlist}
 \end{exe}
 
@@ -257,7 +257,7 @@
     \ex \label{onlyVPredefined} $ \llbracket only\ V\!P \rrbracket = \lambda x.[\forall P [P \in C \land P(x) \rightarrow P = V\!P ]] $
 \end{exe}
 
-Здесь важно еще раз подчеркнуть, что $ C $ --- просто некая свободная переменная. Удаляя упоминания фокуса из семантического значения, мы также решаем проблему, связанную со случаями употребления $ only $ без эксплицитно выраженного фокуса (подробнее об этом см. раздел \ref{focusPragmatics}).
+Здесь важно еще раз подчеркнуть, что $ C $ --- просто некая свободная переменная. Удаляя упоминания фокуса из семантического значения, мы также решаем проблему, связанную со случаями употребления $ only $ без эксплицитно выраженного фокуса (подробнее об этом см. раздел \ref{focusApproaches}).
 
 \medskip
 
@@ -297,8 +297,6 @@
 \begin{exe}
     \ex \label{fixingC} $ \exists C [ C = \{ Introduce(x, \bm{Bill}, Sue), Introduce(x, \bm{Jack}, Sue) \} \\ \land [\forall P [P \in C \land P(Mary) \rightarrow P = \lambda x_{2}.Introduce(x_{2}, Bill, Sue) ]] $
 \end{exe}
-
-Стоит заметить, что конкретный механизм ограничения набора приемлемых альтернатив в \citep{rooth1992theory} не рассматривается.
 
 \subsubsection{Структурированные значения \citep{klein1982intonation,krifka1992compositional}} \label{structuredMeanings}
 
@@ -423,9 +421,27 @@
 
 В данном разделе мы кратко рассмотрим подходы к анализу фокуса с точки зрения прагматики.
 
-\subsubsection{Обзор прагматических подходов к анализу фокуса}
+\subsubsection{О классификации подходов к анализу фокуса} \label{focusApproaches}
 
-В разделе \ref{alternativeSemantics} упоминалось, что в рамках семантики альтернатив \citep{rooth1985association,rooth1992theory} фокус не устанавливает значение свободной переменной, а лишь накладывает на него определенные ограничения (например, на тип элементов, которые могут входить во множество альтернатив). 
+В разделе \ref{alternativeSemantics} было упомянуто, что \citep{rooth1992theory} различал \textit{слабые} и \textit{сильные} теории фокуса. Слабые теории \citep{rooth1985association} отличаются тем, что в них чувствительные к фокусу элементы напрямую обращаются к фокусному значению отдельных составляющих (\ref{weak}), в то время как сильные \citep{rooth1992theory} избегают этого (\ref{strong}). \citep{beaver2008sense} используют термины \textit{конвенциональная} и \textit{свободная} ассоциация с фокусом, в целом соответствующие слабой и сильной ассоциации в \citep{rooth1992theory}.
+
+\begin{exe}
+    \ex \begin{xlist}
+        \ex \label{weak} $ \llbracket only\ V\!P \rrbracket = \lambda x.[\forall P [P \in \llbracket V\!P \rrbracket^{F} \land P(x) \rightarrow P = V\!P]] $
+        \ex \label{strong} $ \llbracket only\ V\!P \rrbracket = \lambda x.[\forall P [P \in C \land P(x) \rightarrow P = V\!P ]] $
+    \end{xlist}
+\end{exe}
+
+Очевидно, что в (\ref{strong}) свободная переменная $ C $ чаще всего определяется набором фокусных альтернатив, вводящихся в пресуппозицию на этапе синтаксической деривации (см. (\ref{tildaTree})). Преимуществом данного подхода (помимо эстетических соображений) является то, что в сильной теории мы не вынуждены утверждать, что чувствительные к фокусу выражения могут употребляться только в контекстах с эксплицитным грамматическим фокусом; существование \textit{безакцентного} фокуса и \textit{ассоциации с пресуппозицией} могут служить аргументом в пользу сильных теорий:
+
+\begin{exe}
+    \ex \begin{xlist}
+        \ex A: Everyone already knew that Mary only eats [\textsc{vegetables}]\textsubscript{F}.
+        \ex B: If even [\textsc{Paul}]\textsubscript{F} knew that Mary only eats [\textsc{vegetables}]\textsubscript{SOF}, then he should have suggested a different restaurant.
+    \end{xlist}
+\end{exe}
+
+\subsubsection{Обзор прагматических подходов к анализу фокуса}
 
 \subsubsection{Фиксация набора альтернатив: детальный анализ}
 
