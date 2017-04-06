@@ -4,6 +4,7 @@
 \usepackage{mathtools}
 \usepackage{fixltx2e}
 \usepackage{stmaryrd}
+\usepackage[perpage]{footmisc}
 \usepackage{bm}
 \usepackage{tikz}
 \usepackage{qtree}
@@ -15,6 +16,7 @@
 \noautomath
 \newcommand*{\LargerCdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
 \newcommand*{\LargeCdot}{\raisebox{-0.25ex}{\scalebox{1.8}{$\cdot$}}}
+
 % COMPILE WITH: reset && pdflatex zavgorodny_diplom.tex && bibtex zavgorodny_diplom && pdflatex zavgorodny_diplom.tex && pdflatex zavgorodny_diplom.tex
 
 \title{Семантика и дистрибуция фокусных частиц в русском языке}
@@ -432,23 +434,34 @@
     \end{xlist}
 \end{exe}
 
-Очевидно, что в (\ref{strong}) свободная переменная $ C $ чаще всего определяется набором фокусных альтернатив, вводящихся в пресуппозицию на этапе синтаксической деривации (см. (\ref{tildaTree})). Преимуществом данного подхода (помимо эстетических соображений) является то, что в сильной теории мы не вынуждены утверждать, что чувствительные к фокусу выражения могут употребляться только в контекстах с эксплицитным грамматическим фокусом; существование \textit{безакцентного} фокуса и \textit{ассоциации с пресуппозицией} могут служить аргументом в пользу сильных теорий:
+Очевидно, что в (\ref{strong}) свободная переменная $ C $ чаще всего определяется набором фокусных альтернатив, вводящихся в пресуппозицию на этапе синтаксической деривации (см. (\ref{tildaTree})). Преимуществом данного подхода (помимо эстетических соображений) является то, что в сильной теории мы не вынуждены утверждать, что чувствительные к фокусу выражения могут употребляться только в контекстах с эксплицитным грамматическим фокусом; существование \textit{безакцентного} фокуса может служить аргументом в пользу сильных теорий:
 
 \begin{exe}
-    \ex \begin{xlist}
-        \ex A: Everyone already knew that Mary only eats [\textsc{vegetables}]\textsubscript{F}.
-        \ex B: If even [\textsc{Paul}]\textsubscript{F} knew that Mary only eats [\textsc{vegetables}]\textsubscript{SOF}, then he should have suggested a different restaurant.
-    \end{xlist}
+    \ex A: Мне кажется, все знали, что Кламм общается только\footnote{Мы полагаем, что в релевантных для данного обсуждения аспектах русское \textit{только} ведет себя так же, как английское \textit{only}.} с [\textsc{Фридой}]\textsubscript{F}. \\
+        B: Даже [\textsc{К.}]\textsubscript{F} знал, что Кламм общается только с [\textsc{Фридой}]\textsubscript{SOF}, но это его мало заботило.
 \end{exe}
 
-\subsubsection{Обзор прагматических подходов к анализу фокуса}
+Второе упоминание Фриды в ответе \textit{В} не несет на себе эксплицитного фразового ударения, но употребление \textit{только} в этом контексте все равно является грамматичным; это явление называется вторичным фокусом (англ. \textit{second occurence focus}) \citep{partee199911}. В (\ref{preAccentlessOnly}) дан еще однин пример безакцентного употребления \textit{only} (здесь вторичный фокус предшествует фразовому ударению):
+
+\begin{exe} 
+    \ex \label{preAccentlessOnly} A: I hear that John only gave [\textsc{a book}]\textsubscript{F} to Mary. \\
+    B: True, but John only gave [\textsc{a book}]\textsubscript{SOF} SOF to [\textsc{many people}]\textsubscript{F}.
+\end{exe}
+
+Стоит заметить также, что в \citep{beaver2008sense} нередко говорится о чисто прагматическом (англ. \textit{purely pragmatic}) подходе к анализу фокуса (так, например, говорится о подходе \citep{roberts1996information}, см. раздел \ref{robertsFocus}); можно считать, что здесь имеется в виду то же, что и в случае свободной (сильной) ассоциации. В этом смысле теория \citep{rooth1992theory} является не менее ``прагматической'', чем \citep{roberts1996information}, однако в последней гораздо больше внимания уделяется непосредственно механизму фиксации множества альтернатив в прагматике. По этой причине мы приводим изложение \citep{roberts1996information} и построенной на её основе теории QFC (теория трех степеней ассоциации с фокусом: Quasi, Free, Conventional, \citep{beaver2008sense}) именно в разделе о прагматике фокуса.
+
+\subsubsection{Степени ассоциации с фокусом: QFC \citep{roberts1996information, beaver2008sense}} \label{robertsFocus}
+
+
+
+\subsubsection{Анализ фокуса в фреймворке DRT \citep{geurts2004interpreting}}
 
 \subsubsection{Фиксация набора альтернатив: детальный анализ}
 
 \section{Фокус и фокусные операторы}
 
 \newpage
-\bibliography{refs} 
+\bibliography{bibliography} 
 \bibliographystyle{plainnat}
 
 \end{document}
