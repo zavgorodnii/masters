@@ -16,6 +16,7 @@
 \noautomath
 \newcommand*{\LargerCdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
 \newcommand*{\LargeCdot}{\raisebox{-0.25ex}{\scalebox{1.8}{$\cdot$}}}
+\def\mathhyphen{{\hbox{-}}}
 
 % COMPILE WITH: reset && pdflatex zavgorodny_diplom.tex && bibtex zavgorodny_diplom && pdflatex zavgorodny_diplom.tex && pdflatex zavgorodny_diplom.tex
 
@@ -185,7 +186,7 @@
 
 \medskip
 
-Понятие фокусного значения используется для интерпретации чувствительных к фокусу элементов вроде английского \textit{only} или русского \textit{только}. Предположим, чтот $ S $ --- предложение, содержащее \textit{only} (например, $ Andrew\ smokes\ only\ [\textsc{cigarettes}]_{F} $), а $ M $ и $ R $ --- его фокусное и обычное значения соответственно. $ only(S) $ означает, что все альтернативы, кроме $ S $, не верны. Мы можем записать сказанное формально:
+Понятие фокусного значения используется для интерпретации чувствительных к фокусу элементов вроде английского \textit{only} или русского \textit{только}. Предположим, чтот $ S $ --- предложение, содержащее \textit{only} (например, $ Andrew\ only\ smokes\ [\textsc{cigarettes}]_{F} $), а $ M $ и $ R $ --- его фокусное и обычное значения соответственно. $ only(S) $ означает, что все альтернативы, кроме $ S $, не верны. Мы можем записать сказанное формально:
 
 \begin{exe}
     \ex \label{simpleAlternatives} $ \forall P \in M, true(p) \rightarrow P = R $
@@ -448,15 +449,82 @@
     B: True, but John only gave [\textsc{a book}]\textsubscript{SOF} SOF to [\textsc{many people}]\textsubscript{F}.
 \end{exe}
 
-Стоит заметить также, что в \citep{beaver2008sense} нередко говорится о чисто прагматическом (англ. \textit{purely pragmatic}) подходе к анализу фокуса (так, например, говорится о подходе \citep{roberts1996information}, см. раздел \ref{robertsFocus}); можно считать, что здесь имеется в виду то же, что и в случае свободной (сильной) ассоциации. В этом смысле теория \citep{rooth1992theory} является не менее ``прагматической'', чем \citep{roberts1996information}, однако в последней гораздо больше внимания уделяется непосредственно механизму фиксации множества альтернатив в прагматике. По этой причине мы приводим изложение \citep{roberts1996information} и построенной на её основе теории QFC (теория трех степеней ассоциации с фокусом: Quasi, Free, Conventional, \citep{beaver2008sense}) именно в разделе о прагматике фокуса.
+Стоит заметить также, что в \citep{beaver2008sense} нередко говорится о чисто прагматическом (англ. \textit{purely pragmatic}) подходе к анализу фокуса (так, например, говорится о подходе \citep{roberts1996information}, см. раздел \ref{robertsFocus}); можно считать, что здесь имеется в виду то же, что и в случае свободной (сильной) ассоциации. В этом смысле теория \citep{rooth1992theory} является не менее ``прагматической'', чем \citep{roberts1996information}, однако в последней гораздо больше внимания уделяется непосредственно механизму фиксации множества альтернатив в прагматике. По этой причине мы приводим изложение \citep{roberts1996information} именно в разделе о прагматике фокуса.
 
-\subsubsection{Степени ассоциации с фокусом: QFC \citep{roberts1996information, beaver2008sense}} \label{robertsFocus}
+\subsubsection{Прагматический механизм ассоциации с фокусом \citep{roberts1996information,beaver2008sense}} \label{robertsFocus}
 
+Подход \citep{roberts1996information} является чисто прагматической (сильной) теорией фокуса: все чувствительные к фокусу выражения ассоциируются свободно. Так, \textit{only} получает интерпретацию, в которой рестриктором для квантификации является свободная переменная (ср. с интерпретацией в \citep{rooth1992theory}):
 
+\begin{exe}
+    \ex $ Andrew\ only\ smokes\ [\textsc{cigarettes}]_{F}. $
+    \begin{xlist}
+            \ex \label{robertsOnly} $ \forall P [P \in R \land true(P) \rightarrow P = smoke(Andrew, cigarettes)] $
+            \ex $ R = \{smoke(Andrew, x)\ |\ x \in D \} $
+    \end{xlist}
+\end{exe}
+
+В \citep{roberts1996information} подробно обсуждается механизм фиксации значения переменной $ R $ (множества контекстно доступных альтернатив). Предлагается формальное развитие идеи \citep{rooth1985association} о том, что это множество должно зависеть от \textit{обсуждаемого вопроса} (англ. \textit{question under discussion}).
+
+\medskip
+
+Прежде всего \citep{roberts1996information} дает собственное определение семантики вопроса. Вопрос интерпретируется как абстракция по каждому из содержащихся в нем \textit{wh}-слов: $ \llbracket W\!ho\ arived? \rrbracket = who(\lambda x.[x\ arrived]) $. Множество Q-альтернатив вопроса задается как применение каждого из абстрагированных \textit{wh}-слов ко всем доступным сущностям в модели.
+
+\begin{exe}
+    \ex \label{robertsQuestion} Множество \textbf{Q-альтернатив} вопроса:\\ $ Q \mathhyphen alt(\alpha) = \{ P\ |\ \exists u^{i-1}_{\in D}, ..., u^{i-n}_{\in D} [ P = \llbracket \beta \rrbracket (u^{i-1}) ... (u^{i-n}) ]]\} $,
+    где $ \alpha $ имеет вид $ wh_{i-1}, ..., wh_{i-n}(\beta) $; $ \{ wh_{i-1}, ..., wh_{i-n} \} $ --- (возможно, пустое) множество \textit{wh}-слов в $ \alpha $, а $ D $ --- область определения модели (множество всех людей для \textit{who} и множество всех вещей для \textit{what}).
+\end{exe}
+
+Далее выделяются критерии, которым должно соответствовать высказывание с фокусом; этими критериями являются \textbf{релевантность} и \textbf{конгруэнтность}:
+
+\begin{exe}
+    \ex \begin{xlist}
+            \ex Высказывание $ m $ \textbf{релевантно} для обсуждаемого вопроса  $ q $ в одном из двух случаев:
+                \begin{xlisti}
+                    \ex $ m $ является частичным ответом на вопрос $ q $ ($ m $ --- утверждение);
+                    \ex $ m $ является частью стратегии ответа на вопрос $ q $ ($ m $ --- вопрос).
+                \end{xlisti}
+            \ex Ответ $ \beta $ \textbf{конгруэнтен} вопросу $\!? \alpha $, если его фокусное значение совпадает со множеством Q-альтернатив вопроса: $ \llbracket \beta \rrbracket^{F} = Q \mathhyphen alt(\alpha) $.
+    \end{xlist}
+\end{exe}
+
+В таком случае значением $ R $ для (\ref{fuckedUpExpression}) будет являться множество Q-альтернатив для вопроса в (\ref{fuckedUpQuestion}):
+
+\begin{exe}
+    \ex \begin{xlist}
+            \ex \label{fuckedUpQuestion} Какой предмет/предметы является таковым, что Андрей не имеет других свойств, кроме курения этого предмета/предметов?\footnote{Для применения определения вопроса из (\ref{robertsQuestion}) предполагается соответствие английского \textit{which} русскому \textit{какой}.}
+            \ex \label{fuckedUpExpression} Андрей курит только [\textsc{сигареты}]\textsubscript{F}.
+    \end{xlist}
+\end{exe}
+
+\citep{roberts1996information} замечает, что вопрос в (\ref{fuckedUpQuestion}), хотя и полностью соответствует определениям (\ref{robertsOnly}, \ref{robertsQuestion}), не может быть задан в исходной форме: при условии, что Андрей существует, помимо курения сигарет у него должно быть хотя бы свойство самоидентичности.
+
+\medskip
+
+Утверждается, что вследствие максимы качества по Грайсу (англ. \textit{Gricean Maxim of Quality}) вопрос (\ref{fuckedUpQuestion}) может быть употреблен в дискурсе только в том случае, если подразумевается его релевантность для вопроса (\ref{robertsGeneralQuestion}):
+
+\begin{exe} 
+    \ex \label{robertsGeneralQuestion} Какой предмет/предметы является таковым, что Андрей имеет свойство курения этого предмета/предметов? \\
+    (Что курит Андрей?)
+\end{exe}
+
+Иными словами, область определения (англ. \textit{domain}) \textit{only} сокращается до множества предикатов курения кем-то чего-то. В таком случае (\ref{fuckedUpQuestion}) приобретает следующую трактовку:
+
+\begin{exe} 
+    \ex \label{fuckedUpQuestionCorrected} Какой предмет/предметы является таковым, что Андрей не имеет других свойств курения предмета/предметов, кроме курения этого предмета/предметов?
+\end{exe}
+
+Поскольку любой полный ответ на (\ref{fuckedUpQuestionCorrected}) является также ответом на (\ref{robertsGeneralQuestion}), возможен дискурс в (\ref{robertsGeneralizedDiscourse}):
+
+\begin{exe}
+    \ex \label{robertsGeneralizedDiscourse} \begin{xlist}
+            \ex \label{fuckedUpQuestion} Что курит Андрей?
+            \ex \label{fuckedUpExpression} Андрей курит только [\textsc{сигареты}]\textsubscript{F}.
+    \end{xlist}
+\end{exe}
+
+\citep{kadmon2001formal}, однако, замечает, что 
 
 \subsubsection{Анализ фокуса в фреймворке DRT \citep{geurts2004interpreting}}
-
-\subsubsection{Фиксация набора альтернатив: детальный анализ}
 
 \section{Фокус и фокусные операторы}
 
