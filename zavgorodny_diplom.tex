@@ -174,7 +174,7 @@
 
 \subsection{Семантика фокуса}
 
-В данном разделе мы обсудим подходы к анализу семантики фокуса. В \ref{alternativeSemantics} мы изложим основные положения \textit{семантики альтернатив} \citep{rooth1985association,rooth1992theory}; в \ref{structuredMeanings} мы рассмотрим иной подход, названный теорией \textit{структурированных значений} \citep{Cresswell1985}, а также проведем его сравнение с семантикой альтернатив.
+В данном разделе мы рассмотрим существующие подходы к анализу семантики фокуса. В \ref{alternativeSemantics} мы изложим основные положения \textit{семантики альтернатив} \citep{rooth1985association,rooth1992theory}; в \ref{structuredMeanings} мы рассмотрим иной подход, названный теорией \textit{структурированных значений} \citep{Cresswell1985}, а также проведем его сравнение с семантикой альтернатив.
 
 \subsubsection{Семантика альтернатив \citep{rooth1985association,rooth1992theory}} \label{alternativeSemantics}
 
@@ -456,7 +456,7 @@
 Подход \citep{roberts1996information} является чисто прагматической (сильной) теорией фокуса: все чувствительные к фокусу выражения ассоциируются свободно. Так, \textit{only} получает интерпретацию, в которой рестриктором для квантификации является свободная переменная (ср. с интерпретацией в \citep{rooth1992theory}):
 
 \begin{exe}
-    \ex $ Andrew\ only\ smokes\ [\textsc{cigarettes}]_{F}. $
+    \ex $ Andrew\ only\ smokes\ [\textsc{cigarettes}]_{F}\ on\ Fridays. $
     \begin{xlist}
             \ex \label{robertsOnly} $ \forall P [P \in R \land true(P) \rightarrow P = smoke(Andrew, cigarettes)] $
             \ex $ R = \{smoke(Andrew, x)\ |\ x \in D \} $
@@ -491,38 +491,44 @@
 
 \begin{exe}
     \ex \begin{xlist}
-            \ex \label{fuckedUpQuestion} Какой предмет/предметы является таковым, что Андрей не имеет других свойств, кроме курения этого предмета/предметов?\footnote{Для применения определения вопроса из (\ref{robertsQuestion}) предполагается соответствие английского \textit{which} русскому \textit{какой}.}
-            \ex \label{fuckedUpExpression} Андрей курит только [\textsc{сигареты}]\textsubscript{F}.
+            \ex \label{fuckedUpQuestion} Какой предмет/предметы является таковым, что Андрей не имеет других свойств, кроме курения этого предмета/предметов по пятницам?\footnote{Для применения определения вопроса из (\ref{robertsQuestion}) предполагается соответствие английского \textit{which} русскому \textit{какой}.}
+            \ex \label{fuckedUpExpression} По пятницам Андрей курит только [\textsc{сигареты}]\textsubscript{F}.
     \end{xlist}
 \end{exe}
 
-\citep{roberts1996information} замечает, что вопрос в (\ref{fuckedUpQuestion}), хотя и полностью соответствует определениям (\ref{robertsOnly}, \ref{robertsQuestion}), не может быть задан в исходной форме: при условии, что Андрей существует, помимо курения сигарет у него должно быть хотя бы свойство самоидентичности.
+\citep{roberts1996information} замечает, что вопрос в (\ref{fuckedUpQuestion}), хотя и полностью соответствует определениям (\ref{robertsOnly}, \ref{robertsQuestion}), не может быть задан в исходной форме: при условии, что Андрей существует, помимо курения сигарет по пятницам у него должно быть хотя бы свойство самоидентичности.
 
 \medskip
 
 Утверждается, что вследствие максимы качества по Грайсу (англ. \textit{Gricean Maxim of Quality}) вопрос (\ref{fuckedUpQuestion}) может быть употреблен в дискурсе только в том случае, если подразумевается его релевантность для вопроса (\ref{robertsGeneralQuestion}):
 
 \begin{exe} 
-    \ex \label{robertsGeneralQuestion} Какой предмет/предметы является таковым, что Андрей имеет свойство курения этого предмета/предметов? \\
-    (Что курит Андрей?)
+    \ex \label{robertsGeneralQuestion} Какой предмет/предметы является таковым, что Андрей имеет свойство курения этого предмета/предметов по пятницам? \\
+    (Что курит Андрей по пятницам?)
 \end{exe}
 
-Иными словами, область определения (англ. \textit{domain}) \textit{only} сокращается до множества предикатов курения кем-то чего-то. В таком случае (\ref{fuckedUpQuestion}) приобретает следующую трактовку:
+Иными словами, область определения (англ. \textit{domain}) \textit{only} сокращается до множества предикатов курения кем-то чего-то по пятницам. В таком случае (\ref{fuckedUpQuestion}) приобретает следующую трактовку:
 
-\begin{exe} 
-    \ex \label{fuckedUpQuestionCorrected} Какой предмет/предметы является таковым, что Андрей не имеет других свойств курения предмета/предметов, кроме курения этого предмета/предметов?
+\begin{exe}
+    \ex \label{fuckedUpQuestionCorrected} Какой предмет/предметы является таковым, что Андрей не имеет других свойств курения предмета/предметов по пятницам, кроме курения этого предмета/предметов по пятницам?
 \end{exe}
 
-Поскольку любой полный ответ на (\ref{fuckedUpQuestionCorrected}) является также ответом на (\ref{robertsGeneralQuestion}), возможен дискурс в (\ref{robertsGeneralizedDiscourse}):
+\citep{roberts1996information} утверждает, что поскольку любой полный ответ на (\ref{fuckedUpQuestionCorrected}) является также ответом на (\ref{robertsGeneralQuestion}), возможен дискурс в (\ref{robertsGeneralizedDiscourse}):
 
 \begin{exe}
     \ex \label{robertsGeneralizedDiscourse} \begin{xlist}
-            \ex \label{fuckedUpQuestion} Что курит Андрей?
-            \ex \label{fuckedUpExpression} Андрей курит только [\textsc{сигареты}]\textsubscript{F}.
+            \ex \label{robertsGeneralizedDiscourseQuestion} Что курит Андрей по пятницам?
+            \ex \label{robertsGeneralizedDiscourseAnswer} По пятницам Андрей курит только [\textsc{сигареты}]\textsubscript{F}.
     \end{xlist}
 \end{exe}
 
-\citep{kadmon2001formal}, однако, замечает, что 
+\citep{kadmon2001formal} замечает, что подобное рассуждение не дает нам инструментов для точного задания множества альтернатив. Предположим, что в примере (\ref{robertsOnly}) $ R $ содержит не только предсказываемый \citep{roberts1996information} набор альтернатив, но также альтеративу, звучащую как \textit{Андрей курит сигареты по понедельникам}. В таком случае вопрос в (\ref{fuckedUpQuestionCorrected}) будет иметь следующий вид:
+
+\begin{exe}
+    \ex \label{robertsFuckedUpQuestion} Какой предмет/предметы является таковым, что либо Андрей не имеет других свойств курения предмета/предметов по пятницам, кроме курения этого предмета/предметов по пятницам, либо Андрей ничего не курит по пятницам и курит сигареты по понедельникам?
+\end{exe}
+
+Несмотря на то, что такой вопрос звучит очень странно, любой полный ответ на (\ref{robertsFuckedUpQuestion}) будет также являться ответом на (\ref{robertsGeneralizedDiscourseQuestion}), а значит для \citep{roberts1996information} значение $ R $, определенное таким образом, будет являться удовлетворительным.
 
 \subsubsection{Анализ фокуса в фреймворке DRT \citep{geurts2004interpreting}}
 
