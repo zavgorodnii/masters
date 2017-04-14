@@ -6,7 +6,9 @@
 \usepackage{stmaryrd}
 \usepackage[perpage]{footmisc}
 \usepackage{bm}
+\usepackage{array}
 \usepackage{tikz}
+\usepackage{float}
 \usepackage{qtree}
 \usepackage{pst-tree}
 \usepackage[round, sort]{natbib}
@@ -14,8 +16,11 @@
 \usepackage{gb4e}
 
 \noautomath
+\restylefloat{table}
+\renewcommand{\arraystretch}{2}
 \newcommand*{\LargerCdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
 \newcommand*{\LargeCdot}{\raisebox{-0.25ex}{\scalebox{1.8}{$\cdot$}}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash\hspace{0pt}}m{#1}}
 \def\mathhyphen{{\hbox{-}}}
 
 % COMPILE WITH: reset && pdflatex zavgorodny_diplom.tex && bibtex zavgorodny_diplom && pdflatex zavgorodny_diplom.tex && pdflatex zavgorodny_diplom.tex
@@ -71,7 +76,7 @@
 
 % If you don't want a supervisor, uncomment the two lines below and remove the section above
 %\Large \emph{Author:}\\
-%John \textsc{Smith}\\[3cm] % Your name
+%John \textsc{Smith}\\[2.5cm] % Your name
 
 %----------------------------------------------------------------------------------------
 %   DATE SECTION
@@ -540,22 +545,56 @@
 
 \citep{gast2011scalar} предлагают следующую типологию аддитивных операторов:
 
-{\small \begin{exe}
-  \ex \label{auweraTypology} 
-    \Tree [.{\textsc{Аддитивные операторы}} [.{\textsc{Нескалярные}} ] [.{\textsc{Обобщенные}} [.{\textsc{Высокие}} ] [.{\textsc{Низкие}} [.{\textsc{Отрицательные}} ] [.{\textsc{Неотрицательные}} ] ] ] ]
-\end{exe} }
+блядь,
+
+\medskip
 
 
+\begin{figure}[H]
+\small
+    \begin{exe}
+    \ex \label{auweraTypology} 
+        \Tree [.{\textsc{Аддитивные операторы}} [.{\textsc{Нескалярные}} ] [.{\textsc{Обобщенные}} [.{\textsc{Высокие}} ] [.{\textsc{Низкие}} [.{\textsc{Отрицательные}} ] [.{\textsc{Неотрицательные}} ] ] ] ]
+    \end{exe}
+\end{figure}
 
-\begin{table}
-    \begin{tabular}{c|c|c|c}
-    \multicolumn{4}{c}{Аддитивные операторы} \\[10pt] \hline
-    Нескалярные & \multicolumn{3}{c}{Обобщенные} \\[10pt] \cline{2-4}
-    ~ & Высокие & \multicolumn{2}{c}{Низкие} \\[10pt] \cline{3-4}
-    ~ & ~ & Отрицательные & Неотрицательные \\[10pt]
+
+\medskip
+
+емана
+
+\medskip
+
+\begin{figure}[H]
+    \small
+    \begin{tabular}{C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}}
+    \multicolumn{4}{c}{\textsc{Аддитивные операторы}}                   \\ \hline
+    \textsc{Нескалярные} & \multicolumn{3}{c}{\textsc{Обобщенные}}      \\ \cline{2-4}
+    ~ & \textsc{Высокие} & \multicolumn{2}{c}{\textsc{Низкие}}          \\ \cline{3-4}
+    ~ & ~ & \textsc{Отрицательные} & \textsc{Неотрицательные}           \\
     \end{tabular}
-\end{table}
+\end{figure}
 
+что за 
+
+\medskip
+
+\textsc{Русский язык}
+
+\begin{figure}[H]
+    \begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
+    \hline
+    \multicolumn{4}{|c|}{и}             \\ \hline
+    тоже & \multicolumn{3}{c|}{даже}    \\ \hline
+    ~ & ~ & ни & хоть                   \\ \hline
+    \end{tabular}
+\end{figure}
+
+\medskip
+
+хуйня
+
+\medskip
 
 \newpage
 \bibliography{bibliography} 
