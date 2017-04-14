@@ -7,6 +7,7 @@
 \usepackage[perpage]{footmisc}
 \usepackage{bm}
 \usepackage{array}
+\usepackage[table]{xcolor}
 \usepackage{tikz}
 \usepackage{float}
 \usepackage{qtree}
@@ -17,7 +18,7 @@
 
 \noautomath
 \restylefloat{table}
-\renewcommand{\arraystretch}{2}
+\renewcommand{\arraystretch}{1.5}
 \newcommand*{\LargerCdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
 \newcommand*{\LargeCdot}{\raisebox{-0.25ex}{\scalebox{1.8}{$\cdot$}}}
 \newcolumntype{C}[1]{>{\centering\arraybackslash\hspace{0pt}}m{#1}}
@@ -543,29 +544,56 @@
 
 \subsection{Фокусные частицы: обзор} \label{focusParticles}
 
-\citep{gast2011scalar} предлагают следующую типологию аддитивных операторов:
+Обзор.
 
-блядь,
+\subsection{Скалярные фокусные операторы} \label{scalarOperators}
+
+\citep{gast2011scalar} принимают точку зрения \citep{rooth1985association} о семантике фокуса как о множестве контекстно заданных альтернатив.  Скалярные фокусные частицы предлагается считать пропозициональными операторами, вводящими пресуппозицию о том, что модифицируемая пропозиция \textit{прагматически сильнее} контекстных альтернатив.
 
 \medskip
 
+Понятие прагматической силы определяется следующим образом:
 
-\begin{figure}[H]
+\begin{exe}
+    \ex Пропозиция $ x $ \textbf{прагматически сильнее} пропозиции $ y $ (в отношении обсуждаемого вопроса $ Q $), если релевантные контекстные импликации $ x $ (в отношении $ Q $) обуславливают релевантные контекстные импликации $ y $.
+\end{exe}
+
+\textit{Контекстные импликации} --- это утверждения, выводимые одновременно из высказывания и контекста, но из высказывания или контекста по отдельности \citep{sperber2004experimental}; контекстные импликации релевантны в отношении обсуждаемого вопроса, если они дают некоторую информацию о предмете этого вопроса (либо уточняют его). 
+
+\medskip
+
+\citep{gast2011scalar} используют понятие контекстных импликаций как возможное решение проблем стандартного (вероятностного) анализа семантики скалярных операторов: не во всех случаях можно говорить о том, что пропозиция, модифицируемая скалярным оператором, \textit{менее вероятна} своих альтернатив (\ref{failedProbabilityAnswer}):
+
+\begin{exe}
+    \ex \begin{xlist}
+    \ex \label{failedProbabilityQUD} \textit{(Обсуждаемый вопрос)} Насколько темными являются кожаные автомобильные сидения?
+    \ex \label{failedProbabilityAnswer} По эстетическим соображения кожаные сидения в автомобилях чаще всего окрашиваются в темно-серый цвет, в основном даже в черный.
+    \end{xlist}
+\end{exe}
+
+В примере (\ref{failedProbabilityAnswer}) невозможно говорить о том, что черная окраска сидений является менее вероятной алтернативой. 
+
+\medskip
+
+Ниже мы рассмотрим пример использования понятия контекстных импликаций в случае
+
+\begin{exe}
+    \ex It is more for aesthetic reasons that leather seats in automobiles are mainly coloured dark grey, indeed mostly even black.
+\end{exe}
+
+\medskip
+
+\citep{gast2011scalar} предлагают следующую типологию аддитивных операторов:
+
+\begin{table}[H]
 \small
     \begin{exe}
     \ex \label{auweraTypology} 
         \Tree [.{\textsc{Аддитивные операторы}} [.{\textsc{Нескалярные}} ] [.{\textsc{Обобщенные}} [.{\textsc{Высокие}} ] [.{\textsc{Низкие}} [.{\textsc{Отрицательные}} ] [.{\textsc{Неотрицательные}} ] ] ] ]
     \end{exe}
-\end{figure}
+\end{table}
 
-
-\medskip
-
-емана
-
-\medskip
-
-\begin{figure}[H]
+\begin{table}[H]
     \small
     \begin{tabular}{C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}}
     \multicolumn{4}{c}{\textsc{Аддитивные операторы}}                   \\ \hline
@@ -573,37 +601,22 @@
     ~ & \textsc{Высокие} & \multicolumn{2}{c}{\textsc{Низкие}}          \\ \cline{3-4}
     ~ & ~ & \textsc{Отрицательные} & \textsc{Неотрицательные}           \\
     \end{tabular}
-\end{figure}
+\end{table}
 
-что за 
+{\footnotesize \textsc{Русский язык}}
 
-\medskip
-
-\textsc{Русский язык}
-
-\begin{figure}[H]
-    \begin{tabular}{|C{2.5cm}|C{2.5cm}|C{2.5cm}|C{2.5cm}|}
-    \hline
-    \multicolumn{4}{|c|}{и}             \\ \hline
-    тоже & \multicolumn{3}{c|}{даже}    \\ \hline
-    ~ & ~ & ни & хоть                   \\ \hline
+\begin{table}[H]
+    \begin{tabular}{|C{2.5cm} C{2.5cm}|C{2.5cm}|C{2.5cm}|} \hline
+    \rowcolor{gray!20} \multicolumn{4}{|c|}{и}                  \\ \hline
+    \rowcolor{gray!20} \multicolumn{1}{|c|}{тоже} & \multicolumn{3}{c|}{даже}        \\ \hline
+    ~ & ~ & \cellcolor{gray!20} ни & \cellcolor{gray!20} хоть   \\ \hline
     \end{tabular}
-\end{figure}
+\end{table}
 
-\medskip
-
-хуйня
-
-\medskip
+\section{Скалярные фокусные операторы в русском языке}
 
 \newpage
 \bibliography{bibliography} 
 \bibliographystyle{plainnat}
-
-\subsection{Скалярные фокусные операторы} \label{scalarOperators}
-
-
-
-\section{Скалярные фокусные операторы в русском языке}
 
 \end{document}
