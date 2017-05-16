@@ -20,7 +20,7 @@
 
 \noautomath
 \restylefloat{table}
-\renewcommand{\baselinestretch}{1.3} 
+\renewcommand{\baselinestretch}{1.5} 
 \renewcommand{\arraystretch}{1.5}
 \newcommand*{\LargerCdot}{\raisebox{-0.25ex}{\scalebox{1.2}{$\cdot$}}}
 \newcommand*{\LargeCdot}{\raisebox{-0.25ex}{\scalebox{1.8}{$\cdot$}}}
@@ -999,11 +999,6 @@
         \ex Научный труд, не законченный аж $ [\textsc{за 40 лет}]_F $ (постоянной работы).
         \ex Кочегар Василий не пил аж $ [\textsc{до Нового года}]_F $.
         \ex Александр Сергеевич не пришел вовремя аж  $ [\textsc{дважды}]_F $ (за неделю).
-        % \ex \textit{Васе свойственно опаздывать всюду, иногда это приводит к последствиям.} \\ Например, когда Вася не успел аж $ [\textsc{на совещание} $ \\ $ \textsc{директоров}]_F $.
-        % \ex \textit{Вася работает в правительстве и постоянно совершает глупые ошибки, чем раздражает своё начальство.} \\
-        % В этот раз Вася не угодил аж $ [\textsc{премьер-министру}]_F $, у него будут проблемы.
-        % \ex \textit{Вася ходил на официальные приёмы и демонстративно выказывал презрение высокопоставленным чиновникам (из-за своих политических убеждений). Презрение Вася выказывал посредством отказа совершить рукопожатие перед объективами камер. В понедельник он проигнорировал министра обороны, в среду --- премьер-министра.} \\
-        % Вчера Вася не пожал руку аж $ [\textsc{президенту}]_F $.
     \end{xlist}
 \end{exe}
 
@@ -1135,42 +1130,86 @@
     \end{xlist}
 \end{exe}
 
-\citep{fabergas2017building} замечают, что не все события имеют соответствующее отрицательное событие. Отрицательная интерпретация события возможна только в том случае, если сущность, понимаемая как его субъект, может контролировать инициацию этого события. Это доказывается на примерах трёх типов: (i) невозможность прочтения с отрицательным событием для глаголов, описывающих события без контроллёра (\ref{fabergasNotControlled}) ; (ii) возможность отрицательного события в случае инхоативно-каузативной альтернациии только в каузативном прочтении (\ref{fabergasAlternation}); (iii) невозможность отрицательного события при непрямом каузаторе (\ref{fabergasNonDirect}):
+Наиболее важным в нашем случае является то, какую синтаксическую можно предположить для отрицательных событий. \citep{fabergas2017building} используют теорию, изложенную в \citep{ramchand201Xauxiliaries}. В соответствии с нео-давидсоновской семантикой предложение в (\ref{neoDavidOrdinary}) будет иметь следующую семантику:
 
 \begin{exe}
-    \ex \begin{xlist}
-        \ex \label{fabergasNotControlled} 
-            \gll *Juan llegó a no toparse con su jefe. \\
-                 Juan became to not to.bump into his boss \\
-            \glt `Intended: Juan went as far as not to bump into his boss.'
-        \ex
-            \gll Juan no llegó a toparse con su jefe. \\
-                 Juan not became to to.bump into his boss \\
-            \glt `Juan didn’t eventually bump into his boss.'
+    \ex \label{neoDavidOrdinary} \begin{xlist}
+        \ex John ran.
+        \ex $ \exists e [\textsc{Run(}e\textsc{)} \land \textsc{Agent(}e\textsc{, John)}] $
     \end{xlist}
 \end{exe}
 
+Интерпретацию с отрицательным событием, на первый взгляд, можно получить, просто поместив отрицание непосредственно перед глаголом (\ref{neoDavidNegative}):
+
 \begin{exe}
-    \ex \begin{xlist}
-        \ex 
-            \gll *La leche llegó a no hervir. \\
-                 the milk became to not to.boil \\
-            \glt `Intended: The milk became as far as not to boil.'
-        \ex \label{fabergasAlternation} 
-            \gll La matron llegó a no hervir la leche. \\
-                 the midwife became to not to.boil the milk \\
-            \glt `The midwife went as far as not to boil the milk.'
+    \ex \label{neoDavidOrdinary} \begin{xlist}
+        \ex John didn't run.
+        \ex $ \lnot \exists e [\textsc{Run(}e\textsc{)} \land \textsc{Agent(}e\textsc{, John)}] $
+        \ex \label{neoDavidNegative} $ \exists e [\lnot\textsc{Run(}e\textsc{)} \land \textsc{Agent(}e\textsc{, John)}] $
     \end{xlist}
 \end{exe}
 
+Однако (\ref{neoDavidNegative}) дает нам неверные предсказания: утверждается, что произошло \textit{некоторое} событие, отличное от бега, агенсом которого является Джон (то есть, таким событием может быть сон, крик, мольба и так далее). \citep{arkadiev2015negative} утверждает, что для отрицательных событий необходим другой тип отрицания (связанного с нереализовавшимися ожиданиями свершения положительного события). \citep{arkadiev2015negative} замечает, подобная интерпретация трудно достижима в классической нео-давидсоновской семантике вследствие множества оттенков прочтения, которые может получить отрицание в различных контекстах. 
+
+\medskip
+
+Для преодоления упомянутых проблем \citep{fabergas2017building} предлагают обратиться к семантике \citep{ramchand201Xauxiliaries}, различающей \textit{события} и \textit{ситуации}:
+
 \begin{exe}
-    \ex {\small The authorities were totally irresponsible during the crisis; they did not think about reinforcing the hospital system, they did not give antibiotics to the population and...} \label{fabergasNonDirect} 
-        \gll *el riesgo de tormenta llegó a no justificar la evacuación. \\
-             the risk of storm became to not to.justify the evacuation \\
-        \glt `The storm risk went as far as not to justify the evacuation.'
+    \ex \textsc{События}
+        \begin{itemize}
+            \item Сущности, ``существующие'' вне привязки к миру (в терминах интенсиональной семантики), времени и месту;
+            \item Строятся композиционально;
+            \item Могут быть связаны друг с другом посредством отношений \textsc{cause}, \textsc{part-of}, \textsc{is-identical-to};
+            \item Могут быть привязаны к элементам множества индивидов при помощи отношения \textsc{hold-of}.
+        \end{itemize}
 \end{exe}
 
-% С учетом всего вышесказанного представляется разумным проверить предскзазания теории \citep{fabergas2017building} для русского \textit{аж} под отрицанием, и если факты будут говорить в пользу версии с отрицательным событием --- рассмотреть часть исследования \citep{fabergas2017building}, затрагивающую синтаксис отрицательных событий.
+\begin{exe}
+    \ex \textsc{Ситуации}
+        \begin{itemize}
+            \item Конкретные ``положения вещей'' (англ. \textit{states of affaires}), существующие в конкретном мире, времени и месте;
+            \item Являются частью мереологии, в которой мир является исходным  элементом;
+            \item Переменные, обозначающие ситуации, записываются с отсылкой к миру и времени: $ s_{w, t} $.
+        \end{itemize}
+\end{exe}
+
+Главным отличием между событиями и ситуациями, очевидно, является привязка последних к миру и времени. \citep{ramchand201Xauxiliaries} особо обращает внимание на то, что в её теории события являются не событиями в обычном языковом понимании, а абстрактными ``сущностями событиий'' (англ. \textit{event essences}); экзистенциальная квантификация по событиям в понимании \citep{ramchand201Xauxiliaries}, в таком случае, не подразумевает привязки к миру или времени.
+
+\medskip
+
+Подобная привязка называется у \citep{ramchand201Xauxiliaries} \textit{инстанциацией} и определяется следующим образом:
+
+\begin{exe}
+    \ex Ситуация \textbf{инстанциирует} событие, если она является протеканием (англ. \textit{the playing out of}) события а конкретном мире и времени.
+\end{exe}
+
+\citep{ramchand201Xauxiliaries} принимает предположение \citep{champollion2015interaction} о том, что глаголы обозначают множества множеств событий:(\ref{champVerbs})
+
+\begin{exe}
+    \ex \label{champVerbs} $\llbracket$kiss Mary$\rrbracket = \lambda f.\exists e[kiss(e) \land f(e) \land INT(e) = Mary]$
+\end{exe}
+
+Операция инстанциации позволяет получить (\ref{ramchInst}) из (\ref{ramchInit}):
+
+\begin{exe}
+    \ex \begin{xlist}
+        \ex \label{ramchInit} $\llbracket$John kiss Mary$\rrbracket = \lambda e[kiss(e) \land \textsc{Ext}(e) = John \land \textsc{Int}(e) = Mary]$
+        \ex \label{ramchInst} $\llbracket$John kiss Mary$\rrbracket = \lambda f.\exists s [ \exists e[kiss(e) \land \Theta_1(e) = John \land \Theta_2(e) = Mary] \land \textit{Instantiate}(s,e) \land f(s)]$
+    \end{xlist}
+\end{exe}
+
+С точки зрения синтаксиса \citep{ramchand201Xauxiliaries} предлагает считать, что события (в её понимания) собираются на уровне $ vP $, в то время как ситуации находятся на уровень выше, приблизительно там же, где можно найти функциональные проекции аспекта (\ref{ramchSimplified}, в упрощенном виде):
+
+\begin{exe}    
+    \ex\label{ramchSimplified} \Tree [.{\hspace{1cm}AspP, $ [\textsc{John-Kiss-Mary}(e) \land \textit{Instantiate}(s,e)] $} {Asp} \qroof{\textit{John kiss Mary}}.{\hspace{1cm} vP, $ \lambda e[kiss(e) \land \textsc{Ext}(e) = John \land \textsc{Int}(e) = Mary] $} ]
+\end{exe}
+
+Теория \citep{ramchand201Xauxiliaries} предполагает существование отрицательных событий: отрицание может находиться в двух позициях. В первом случае оно находится в фазе полярности $\Sigma$P \citep{laka2013negation}, находящейся над TP; эта позиция дает прочтение, соответствующее событию под отрицанием. Во втором случае отрицание находится в фазе полярности, для которой \citep{fabergas2017building} предлагают положение над проекцией \textsc{InitP}, отвечающей за каузацию событий (судя по всему, для \citep{fabergas2017building} это важно из-за их утверждения об обязательной агентивности отрицательного события):
+
+\begin{exe}    
+    \ex\label{fabergasTree} \Tree [.{$\Sigma$P} {$\Sigma$} [.\textsc{TP} {T} [.{\textsc{AspP}} {\textsc{Asp}} [.{$\Sigma$P} {not} [.{\textsc{InitP}} [.\textsc{DP} John ] [.{\textsc{InitP}} {\textsc{Init}} ... ] ] ] ] ] ]
+\end{exe}
 
 \medskip
 
