@@ -6,6 +6,7 @@
 % \usepackage{extsizes}
 \usepackage{fixltx2e}
 \usepackage{stmaryrd}
+\usepackage{csquotes}
 \usepackage[perpage]{footmisc}
 \usepackage{bm}
 \usepackage{array}
@@ -988,13 +989,13 @@
 
 \medskip
 
-Однако стоит выделить особый тип примеров, в которых \textit{аж} может существовать под отрицанием:
+Однако стоит выделить особый тип примеров, в которых \textit{аж} может существовать под отрицанием\footnote{Все примеры взяты из поисковой выдачи Национального Корпуса Русского Языка по запросу \textit{<не + [любое слово] + аж>}, причем примеры с обстоятельствами времени --- единственные, которые удалось найти.}:
 
 \begin{exe}
     \ex \label{azhNegativeEvents} \begin{xlist}
         \ex Вася не спал аж $ [\textsc{30 часов}]_F $.
         \ex Вася не приходил на работу аж $ [\textsc{2 недели}]_F $.
-        \ex Хотел купить эту тачку, а она не продается аж $ [\textsc{c 2000 года}]_F $.
+        \ex Хотел купить эту модель, а она не продается аж $ [\textsc{c 2000 года}]_F $.
         \ex Новых фильмов этого режиссера мы не увидим аж $ [\textsc{до зимы}]_F $.
         \ex Научный труд, не законченный аж $ [\textsc{за 40 лет}]_F $ (постоянной работы).
         \ex Кочегар Василий не пил аж $ [\textsc{до Нового года}]_F $.
@@ -1115,19 +1116,39 @@
 
 \medskip
 
-Также замечается, что наречия продолжительности действия (исп. \textit{durante}, `в течение') не сочетаются с событием под отрицанием, однако возможны с отрицательным событием:
+\citep{fabergas2017building} замечают, что не все события в испанском языке имеют соответствующее отрицательное событие. Отрицательная интерпретация события возможна только в том случае, если сущность, понимаемая как его субъект, может контролировать инициацию этого события. Это доказывается на примерах трёх типов: (i) невозможность прочтения с отрицательным событием для глаголов, описывающих события без контроллёра (\ref{fabergasNotControlled}) ; (ii) возможность отрицательного события в случае инхоативно-каузативной альтернациии только в каузативном прочтении (\ref{fabergasAlternation}); (iii) невозможность отрицательного события при непрямом каузаторе (\ref{fabergasNonDirect}):
 
 \begin{exe}
-    \ex \label{fabergasForPhrase} \begin{xlist}
-        \ex \label{fabergasForPhrase} 
-            \gll La empresa llegó a no vender casas durante dos meses. \\
-                 the company became to not to.sell houses for two months \\
-            \glt `The company went so far as not to sell houses for two months.'
-        \ex \label{fabergasForPhraseBad}
-            \gll *La empresa no llegó a vender casas durante dos meses. \\
-                 the company not became to to.sell houses for two months \\
-            \glt `The company didn’t go so far as to sell houses for two months.'
+    \ex \begin{xlist}
+        \ex \label{fabergasNotControlled} 
+            \gll *Juan llegó a no toparse con su jefe. \\
+                 Juan became to not to.bump into his boss \\
+            \glt `Intended: Juan went as far as not to bump into his boss.'
+        \ex
+            \gll Juan no llegó a toparse con su jefe. \\
+                 Juan not became to to.bump into his boss \\
+            \glt `Juan didn’t eventually bump into his boss.'
     \end{xlist}
+\end{exe}
+
+\begin{exe}
+    \ex \begin{xlist}
+        \ex 
+            \gll *La leche llegó a no hervir. \\
+                 the milk became to not to.boil \\
+            \glt `Intended: The milk became as far as not to boil.'
+        \ex \label{fabergasAlternation} 
+            \gll La matron llegó a no hervir la leche. \\
+                 the midwife became to not to.boil the milk \\
+            \glt `The midwife went as far as not to boil the milk.'
+    \end{xlist}
+\end{exe}
+
+\begin{exe}
+    \ex {\small The authorities were totally irresponsible during the crisis; they did not think about reinforcing the hospital system, they did not give antibiotics to the population and...} \label{fabergasNonDirect} 
+        \gll *el riesgo de tormenta llegó a no justificar la evacuación. \\
+             the risk of storm became to not to.justify the evacuation \\
+        \glt `The storm risk went as far as not to justify the evacuation.'
 \end{exe}
 
 Наиболее важным в нашем случае является то, какую синтаксическую можно предположить для отрицательных событий. \citep{fabergas2017building} используют теорию, изложенную в \citep{ramchand201Xauxiliaries}. В соответствии с нео-давидсоновской семантикой предложение в (\ref{neoDavidOrdinary}) будет иметь следующую семантику:
@@ -1205,13 +1226,60 @@
     \ex\label{ramchSimplified} \Tree [.{\hspace{1cm}AspP, $ [\textsc{John-Kiss-Mary}(e) \land \textit{Instantiate}(s,e)] $} {Asp} \qroof{\textit{John kiss Mary}}.{\hspace{1cm} vP, $ \lambda e[kiss(e) \land \textsc{Ext}(e) = John \land \textsc{Int}(e) = Mary] $} ]
 \end{exe}
 
-Теория \citep{ramchand201Xauxiliaries} предполагает существование отрицательных событий: отрицание может находиться в двух позициях. В первом случае оно находится в фазе полярности $\Sigma$P \citep{laka2013negation}, находящейся над TP; эта позиция дает прочтение, соответствующее событию под отрицанием. Во втором случае отрицание находится в фазе полярности, для которой \citep{fabergas2017building} предлагают положение над проекцией \textsc{InitP}, отвечающей за каузацию событий (судя по всему, для \citep{fabergas2017building} это важно из-за их утверждения об обязательной агентивности отрицательного события):
+Теория \citep{ramchand201Xauxiliaries} предполагает существование отрицательных событий: отрицание может находиться в двух позициях. В первом случае оно находится в фазе полярности (англ. \textit{polarity phase}) $\Sigma$P \citep{laka2013negation}, находящейся над TP; эта позиция дает прочтение, соответствующее событию под отрицанием. Во втором случае отрицание находится в фазе полярности, для которой \citep{fabergas2017building} предлагают положение над проекцией \textsc{InitP}, отвечающей за каузацию событий (судя по всему, для \citep{fabergas2017building} это важно из-за их утверждения об обязательной агентивности отрицательного события):
 
 \begin{exe}    
     \ex\label{fabergasTree} \Tree [.{$\Sigma$P} {$\Sigma$} [.\textsc{TP} {T} [.{\textsc{AspP}} {\textsc{Asp}} [.{$\Sigma$P} {not} [.{\textsc{InitP}} [.\textsc{DP} John ] [.{\textsc{InitP}} {\textsc{Init}} ... ] ] ] ] ] ]
 \end{exe}
 
+Для нас данная конфигурация интересна в том смысле, что существование двух полярных фаз может помочь нам объяснить, почему \textit{аж} в определенных случаях может существовать под отрицанием в примерах из (\ref{azhNegativeEvents}), продублированных ниже:
+
+\begin{exe}
+    \ex \label{azhNegativeEvents} \begin{xlist}
+        \ex Вася не спал аж $ [\textsc{30 часов}]_F $.
+        \ex Вася не приходил на работу аж $ [\textsc{2 недели}]_F $.
+        \ex Хотел купить эту модель, а она не продается аж $ [\textsc{c 2000 года}]_F $.
+        \ex Новых фильмов этого режиссера мы не увидим аж $ [\textsc{до зимы}]_F $.
+        \ex Научный труд, не законченный аж $ [\textsc{за 40 лет}]_F $ (постоянной работы).
+        \ex Кочегар Василий не пил аж $ [\textsc{до Нового года}]_F $.
+        \ex Александр Сергеевич не пришел вовремя аж  $ [\textsc{дважды}]_F $ (за неделю).
+    \end{xlist}
+\end{exe}
+
+Наше предложение заключается в том, чтобы считать, что \textit{аж} в приведенных выше контекстах занимает позицию между первой и второй фазой полярности и вызывает прочтение с отрицательным событием, таким образом оказываясь выше отрицания (ниже приблизительно изображена предлагаемая структура):
+
+\begin{exe}    
+    \ex\label{fabergasTree} \Tree [.{$\Sigma$P} {$\Sigma$} [.\textsc{TP} {T} [.{\textsc{AspP}} {\textsc{Asp}} [.\textsc{AdvP} [.{$\Sigma$P} {не} {\ \ \ \ \ ... \ \ \ \ \ } ] \qroof{аж 30 минут}.\textsc{Adv} ] ] ] ]
+\end{exe}
+
+В пользу того, что в примерах из (\ref{azhNegativeEvents}) \textit{аж} находится вне сферы действия отрицания, также свидетельствует тот факт, что мы не можем использовать в модифицируемом обстоятельстве времени элементы с отрицательной полярностью (\ref{azhNPInegated}):
+
+\begin{exe}
+    \ex \begin{xlist}
+        \ex Он не спал два дня.
+        \ex Он не спал ни дня.
+        \ex Он не спал аж $ [\textsc{два дня}]_F $.
+        \ex \label{azhNPInegated} *Он не спал аж $ [\textsc{два дня}]_F $.
+    \end{xlist}
+\end{exe}
+
+Данный анализ в значительной степени опирается на предположение о том, что обстоятельства времени вроде \textit{30 часов}, \textit{до зимы}, etc. могут располагаются достаточно высоко (а именно: выше ``низкой'' $\Sigma$P) в структуре глагольной группы. Здесь можно заметить две вещи.
+
 \medskip
+
+С одной стороны, для \citep{fabergas2017building} расположение второй фазы полярности именно над \textsc{InitP} (а не ниже) вызвано необходимостью объяснить, почему в испанском языке прочтение с отрицательным событием доступно только для агентивных глаголов:
+
+\begin{displayquote}
+    Specifically, we contend that it is above the projection in which causative subevents are codified, that is, \textsc{InitP}.\\ \citep[стр.19]{fabergas2017building}
+\end{displayquote}
+
+В русском языке такие прочтения доступны даже для глаголов вроде \textit{пахнуть} (\ref{pahnut}), поэтому теоретически ``низкое'' отрицание может располагаться еще ниже.
+
+\begin{exe}
+    \ex \label{pahnut} В доме не пахло газом аж $ [\textsc{с похорон Брежнева}]_F $, а вы говорите, что у нас проблемы с трубами.
+\end{exe}
+
+С другой стороны, из-за стативного прочтения мы можем предполагать уменьшенную структуру глагольной группы, вследствие чего обстоятельства времени могут быть вынуждены находиться в более высокой позиции. Решение данной проблемы мы предлагаем оставить для будущих исследований.
 
 \subsubsection{\textit{Аж} и передвижение в LF}
 
@@ -1223,8 +1291,6 @@
 \end{exe}
 
 \subsection{{Хотя бы}} \label{xotyaBy}
-
-
 
 \subsubsection{Семантика русского \textit{хотя бы}}
 
